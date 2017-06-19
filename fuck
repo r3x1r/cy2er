@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html class=""><head>
+<title>Cy2er Film</title>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="icon.png">
+<style class="cp-pen-styles">/* @group Mixins */
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+html {
+  background-color: #2ecc71;
+}
+body {
+  width: 960px;
+  margin: 0 auto;
+}
+section {
+  position: relative;
+}
+section #cinema {
+  width: 460px;
+  height: 397px;
+  position: absolute;
+  top: 61px;
+  left: 77px;
+}
+section #cinema #led {
+  width: 460px;
+  height: 280px;
+  background-color: #474e5d;
+  border-radius: 10px;
+}
+section #cinema #led #camera {
+  width: 5px;
+  height: 5px;
+  margin: 0 auto;
+  position: relative;
+  top: 8px;
+  background-color: #a5adbd;
+  border-radius: 50%;
+}
+section #cinema #led #screen {
+  width: 424px;
+  height: 242px;
+  background-color: #ff6860;
+  margin: 15px auto;
+}
+section #cinema #led #browser {
+  width: 240px;
+  height: 180px;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0 auto;
+  position: relative;
+  top: 30px;
+}
+section #cinema #led #browser #top {
+  width: 240px;
+  height: 20px;
+  background-color: #f4f5f7;
+  border-radius: 5px 5px 0 0;
+}
+section #cinema #led #browser #top div {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  position: relative;
+  top: -2px;
+  display: inline-block;
+}
+section #cinema #led #browser #top div#close {
+  background-color: #fc5254;
+  left: 7px;
+}
+section #cinema #led #browser #top div#minimize {
+  background-color: #fcae52;
+  left: 7px;
+}
+section #cinema #led #browser #top div#maximize {
+  background-color: #66b34e;
+  left: 7px;
+}
+section #cinema #led #browser #top #search {
+  width: 180px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  top: 1px;
+  left: 10px;
+}
+section #cinema #led #browser #box1 {
+  width: 218px;
+  height: 15px;
+  background-color: #f3f5f7;
+  position: relative;
+  top: 11px;
+  left: 10px;
+}
+section #cinema #led #browser #box2 {
+  width: 218px;
+  height: 62px;
+  background-color: #f3f5f7;
+  position: relative;
+  top: 20px;
+  left: 10px;
+}
+section #cinema #led #browser #box3,
+section #cinema #led #browser #box4,
+section #cinema #led #browser #box5 {
+  width: 66px;
+  height: 45px;
+  background-color: #f3f5f7;
+  position: relative;
+  top: 30px;
+  left: 10px;
+  display: inline-block;
+}
+section #cinema #led #browser #box4 {
+  left: 16px;
+}
+section #cinema #led #browser #box5 {
+  left: 22px;
+}
+section #cinema #led #logo {
+  width: 10px;
+  height: 10px;
+  background-color: #e8ebf0;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  top: -11px;
+}
+section #cinema #footer {
+  width: 92px;
+  height: 75px;
+  background-color: #e8ebf0;
+  margin: 0 auto;
+  position: relative;
+}
+section #cinema #footer #shadow {
+  width: 92px;
+  height: 10px;
+  background-color: #d8dbe1;
+  position: absolute;
+  left: 0;
+  z-index: 100;
+}
+section #cinema #footer #shadow:after {
+  content: '';
+  background-color: #d8dbe1;
+  position: absolute;
+  left: -2px;
+  top: 1px;
+  width: 10px;
+  height: 9px;
+  border-radius: 0 0 5px 0;
+  transform: rotate(8deg);
+  -webkit-transform: rotate(8deg);
+  -ms-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
+}
+section #cinema #footer #shadow:before {
+  content: '';
+  background-color: #d8dbe1;
+  position: absolute;
+  right: -3px;
+  top: 1px;
+  width: 10px;
+  height: 9px;
+  transform: rotate(-8deg);
+  -webkit-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  border-radius: 0 0 0 3px;
+}
+section #cinema #footer:before {
+  content: '';
+  width: 20px;
+  height: 73px;
+  background-color: #e8ebf0;
+  transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  position: absolute;
+  left: -10px;
+  top: 1px;
+}
+section #cinema #footer:after {
+  content: '';
+  width: 20px;
+  height: 73px;
+  background-color: #e8ebf0;
+  transform: rotate(-15deg);
+  -webkit-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  position: absolute;
+  right: -11px;
+  top: 1px;
+}
+section #cinema #footer #bottom {
+  width: 165px;
+  height: 7px;
+  background-color: #e8ebf0;
+  border-radius: 1px;
+  position: absolute;
+  left: -36px;
+  bottom: -3px;
+  border-bottom: 1px solid #acd6c4;
+}
+section #cinema #footer #shadow_mac {
+  position: relative;
+}
+section #cinema #footer #shadow_mac:after {
+  content: '';
+  width: 218px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 40px 0px 0 #34ac6c;
+  position: absolute;
+  top: 34px;
+  left: -60px;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0.5;
+}
+section #cinema #keybord {
+  width: 218px;
+  height: 34px;
+  background-color: #e8ebf0;
+  border-bottom: 1px solid #d8dbe1;
+  border-radius: 2px 2px 0 0;
+  margin: 0 auto;
+  position: relative;
+  top: 23px;
+}
+section #cinema #keybord:before {
+  content: '';
+  width: 14px;
+  height: 34px;
+  background-color: #e8ebf0;
+  transform: rotate(15deg);
+  -webkit-transform: rotate(15deg);
+  -ms-transform: rotate(15deg);
+  -moz-transform: rotate(15deg);
+  border-bottom: 1px solid #d8dbe1;
+  border-radius: 5px 5px 5px 10px;
+  position: absolute;
+  left: -8px;
+}
+section #cinema #keybord:after {
+  content: '';
+  width: 14px;
+  height: 33px;
+  background-color: #e8ebf0;
+  transform: rotate(-15deg);
+  -webkit-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  border-bottom: 1px solid #d8dbe1;
+  border-radius: 5px 5px 10px 5px;
+  position: absolute;
+  top: 1px;
+  right: -5px;
+}
+section #cinema #keybord #row1 {
+  width: 215px;
+  height: 5px;
+  background-color: #f4f5f7;
+  border-radius: 2px;
+  position: relative;
+  top: 4px;
+  z-index: 100;
+}
+section #cinema #keybord #row2 {
+  width: 218px;
+  height: 5px;
+  background-color: #f4f5f7;
+  border-radius: 2px;
+  position: relative;
+  top: 6px;
+  left: -2px;
+  z-index: 100;
+}
+section #cinema #keybord #row3 {
+  width: 221px;
+  height: 5px;
+  background-color: #f4f5f7;
+  border-radius: 2px;
+  position: relative;
+  top: 8px;
+  left: -3px;
+  z-index: 100;
+}
+section #cinema #keybord #row4 {
+  width: 224px;
+  height: 5px;
+  background-color: #f4f5f7;
+  border-radius: 2px;
+  position: relative;
+  top: 10px;
+  left: -4px;
+  z-index: 100;
+}
+section #cinema #keybord #shadow {
+  position: relative;
+}
+section #cinema #keybord #shadow:after {
+  content: '';
+  width: 218px;
+  height: 40px;
+  border-radius: 20%;
+  box-shadow: 0 40px 0px 0 #34ac6c;
+  position: absolute;
+  top: -61px;
+  left: 0px;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0.5;
+}
+section #air {
+  width: 294px;
+  height: 161px;
+  position: absolute;
+  top: 278px;
+  left: 495px;
+}
+section #air #led {
+  width: 234px;
+  height: 155px;
+  background-color: #e8ebf0;
+  border-radius: 10px 10px 0 0;
+}
+section #air #led #camera {
+  width: 3px;
+  height: 3px;
+  margin: 0 auto;
+  position: relative;
+  top: 2px;
+  background-color: #a5adbd;
+  border-radius: 50%;
+}
+section #air #led #screen {
+  width: 214px;
+  height: 135px;
+  background-color: #fc9252;
+  margin: 6px auto;
+}
+section #air #led #screen div {
+  position: relative;
+  background-color: #f5a16e;
+  margin: 0 auto;
+}
+section #air #led #screen #box1 {
+  width: 195px;
+  height: 22px;
+  top: 10px;
+}
+section #air #led #screen #box2,
+section #air #led #screen #box3,
+section #air #led #screen #box4 {
+  width: 195px;
+  height: 8px;
+  top: 30px;
+}
+section #air #led #screen #box3 {
+  top: 35px;
+}
+section #air #led #screen #box4 {
+  top: 40px;
+}
+section #air #led #screen #box5 {
+  width: 60px;
+  height: 35px;
+  position: absolute;
+  top: 102px;
+  left: 19px;
+}
+section #air #led #screen #box6 {
+  width: 60px;
+  height: 35px;
+  position: absolute;
+  top: 102px;
+  left: 86px;
+}
+section #air #led #screen #box7 {
+  width: 60px;
+  height: 35px;
+  position: absolute;
+  top: 102px;
+  left: 154px;
+}
+section #air #bottom {
+  width: 296px;
+  height: 6px;
+  background-color: #f4f5f7;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
+  bottom: 0;
+  left: -31px;
+}
+section #air #bottom #open {
+  width: 42px;
+  height: 4px;
+  background-color: #d8dbe1;
+  border-radius: 0 0 5px 5px;
+  margin: 0 auto;
+}
+section #air #shadow {
+  position: relative;
+}
+section #air #shadow:after {
+  content: '';
+  width: 350px;
+  height: 10px;
+  border-radius: 45%;
+  box-shadow: 0 40px 0px 0 #34ac6c;
+  position: absolute;
+  top: -38px;
+  left: -55px;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0.5;
+}
+</style></head><body>
+<section>
+	<figure id="cinema">
+		<div id="led">
+			<div id="camera"></div>
+			<div id="screen"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/7hboVV4yOXY" frameborder="0" allowfullscreen=""></iframe>
+			</div>
+			<div id="logo"></div>
+		</div>
+		<div id="footer">
+			<div id="shadow"></div>
+			<div id="bottom"></div>
+			<div id="shadow_mac"></div>
+		</div>
+		<div id="keybord">
+			<div id="row1"></div>
+			<div id="row2"></div>
+			<div id="row3"></div>
+			<div id="row4"></div>
+			<div id="shadow"></div>
+		</div>
+	</figure>
+	
+	<figure id="air">
+		<div id="led">
+			<div id="camera"></div>
+			<div id="screen">
+				<div id="box1"></div>
+				<div id="box2"></div>
+				<div id="box3"></div>
+				<div id="box4"></div>
+				<div id="box5"></div>
+				<div id="box6"></div>
+				<div id="box7"></div>
+			</div>
+		</div>
+		<div id="bottom">
+			<div id="open"></div>
+		</div>
+		<div id="shadow"></div>
+	</figure>
+</section>
+</body></html>
