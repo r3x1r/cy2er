@@ -1,0 +1,3239 @@
+<html class=""><head><meta charset="UTF-8"><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="icon.png">
+
+<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Raleway, Arial;
+  font-weight: 400;
+  font-size: 1.6em;
+  line-height: 1.4;
+  color: black;
+  letter-spacing: 0.02em;
+  background: white;
+  padding-top: 55px;
+}
+@media (min-width: 660px) {
+  body {
+    padding-top: 70px;
+  }
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 2rem;
+}
+@media (min-width: 660px) {
+  h2 {
+    font-size: 2.4rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.global-header {
+  background: black;
+  color: white;
+  height: 55px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+@media (min-width: 660px) {
+  .global-header {
+    /* position: static; */
+    height: 70px;
+  }
+}
+
+.main-nav__link {
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin: 0 1rem;
+}
+.main-nav__link.is-active {
+  border-bottom: 0.3rem solid white;
+}
+
+@media (min-width: 660px) {
+  .movie-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: auto;
+  }
+}
+
+.movie {
+  display: block;
+  position: relative;
+  color: black;
+  background: black;
+  overflow: hidden;
+}
+@media (min-width: 660px) {
+  .movie {
+    width: 50%;
+    display: inline-block;
+  }
+}
+.movie__info {
+  padding: 1.6rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: -webkit-linear-gradient(top, transparent 0%, black 100%);
+  background: linear-gradient(to bottom, transparent 0%, black 100%);
+  color: white;
+}
+.movie .action-watchlist--remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.movie img {
+  width: 100%;
+  display: block;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  opacity: 1;
+  -webkit-transition: opacity .5s .1s, -webkit-transform 15s;
+  transition: opacity .5s .1s, -webkit-transform 15s;
+  transition: transform 15s, opacity .5s .1s;
+  transition: transform 15s, opacity .5s .1s, -webkit-transform 15s;
+}
+.movie img.is-hidden {
+  opacity: 0;
+}
+.movie h2 {
+  margin: 0;
+}
+.movie:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+.movie.is-removed {
+  height: 0;
+  -webkit-transition: height 0.15s ease-in;
+  transition: height 0.15s ease-in;
+}
+
+.main-content {
+  height: 100%;
+  margin: auto;
+}
+@media (orientation: landscape) {
+  .main-content {
+    height: auto;
+  }
+}
+
+.movie-detailed {
+  position: relative;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.movie-detailed__poster {
+  max-width: 100%;
+  display: block;
+}
+@media (orientation: landscape) {
+  .movie-detailed__poster {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    max-width: none;
+  }
+}
+@media (orientation: landscape) {
+  .movie-detailed {
+    height: calc(100vh - 70px);
+    overflow: hidden;
+    display: block;
+  }
+}
+
+.movie-details {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+@media (orientation: landscape) {
+  .movie-details {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 35%;
+    max-width: 37rem;
+    overflow: auto;
+    padding: 0 1.6rem 3.2rem;
+  }
+}
+.movie-details__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0 1.6rem;
+}
+@media (orientation: landscape) {
+  .movie-details__title {
+    margin-top: 1rem;
+    padding: 0;
+  }
+}
+.movie-details__content {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0 1.6rem;
+}
+@media (orientation: landscape) {
+  .movie-details__content {
+    padding: 0;
+  }
+}
+.movie-details p:last-of-type {
+  margin-bottom: 2rem;
+}
+
+.trans-img {
+  opacity: 1;
+  -webkit-transition: opacity .5s .05s;
+  transition: opacity .5s .05s;
+}
+.trans-img.is-hidden {
+  opacity: 0;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+  position: relative;
+  box-sizing: content-box;
+  pointer-events: none;
+}
+
+.action {
+  border: none;
+  outline: none;
+  background: none;
+  position: relative;
+  padding: 0;
+  width: auto;
+  height: auto;
+  text-transform: uppercase;
+  font-weight: 700;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  display: block;
+}
+.action__icon {
+  fill: black;
+  width: 45px;
+  height: 45px;
+}
+.action-watchlist--added, .action-watchlist--removed {
+  width: auto;
+  height: auto;
+  width: 100%;
+  padding: 8px 0 5px;
+  color: white;
+  background: black;
+}
+@media (orientation: landscape) {
+  .action-watchlist--added, .action-watchlist--removed {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+.action-watchlist--added svg, .action-watchlist--removed svg {
+  top: -3px;
+  width: 35px;
+  height: 35px;
+  fill: white;
+}
+.action--back {
+  position: relative;
+}
+@media (orientation: landscape) {
+  .action--back {
+    left: -1rem;
+  }
+}
+.action--back svg {
+  fill: rgba(0, 0, 0, 0.35);
+}
+.action-watchlist--remove svg {
+  fill: white;
+}
+
+.poster-holder {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+@media (orientation: landscape) {
+  .poster-holder {
+    height: 100vh;
+    padding-bottom: 0;
+  }
+}
+
+.loading {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.loading .loader,
+.loading .loader:before,
+.loading .loader:after {
+  background: black;
+  -webkit-animation: load1 1s infinite ease-in-out;
+          animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loading .loader:before,
+.loading .loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loading .loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+          animation-delay: -0.32s;
+}
+.loading .loader {
+  text-indent: -9999em;
+  margin: 88px auto;
+  position: relative;
+  font-size: 11px;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+          animation-delay: -0.16s;
+}
+@media (orientation: landscape) {
+  .loading .loader {
+    left: 175px;
+  }
+}
+.loading .loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+		80%,
+		100% {
+    box-shadow: 0 0 black;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em black;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+		80%,
+		100% {
+    box-shadow: 0 0 black;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em black;
+    height: 5em;
+  }
+}
+.notification {
+  padding: 0 1.6rem;
+  width: 100%;
+}
+
+.sadface {
+  display: block;
+  margin: 1.6rem auto;
+  max-width: 100%;
+}
+
+.tt {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: visibility 0s linear, opacity 500ms linear;
+  transition: visibility 0s linear, opacity 500ms linear;
+}
+.tt.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition-delay: 500ms, 0ms;
+          transition-delay: 500ms, 0ms;
+}
+</style></head><body>
+<header class="global-header js-header">
+	<nav class="main-nav">
+		<a href="/" class="main-nav__link js-nav-link is-active">Popular</a>
+		<a href="/watchlist" class="main-nav__link js-nav-link">Watchlist</a>
+	</nav>
+</header>
+
+<div class="main-content js-app"><div class="movie-grid">
+	
+		<a href="/movie/281957" class="movie js-movie--show" data-id="281957">
+			<img src="http://image.tmdb.org/t/p/w500//kiWvoV78Cc3fUwkOHKzyBgVdrDD.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>The Revenant</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/140607" class="movie js-movie--show" data-id="140607">
+			<img src="http://image.tmdb.org/t/p/w500//pgSkCrrPO5NWZcvHpXG2l8DxTou.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Star Wars: Episode VII - The Force Awakens</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/205775" class="movie js-movie--show" data-id="205775">
+			<img src="http://image.tmdb.org/t/p/w500//qcWUzAumOrQyypDk0jcKlInhUgk.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>In the Heart of the Sea</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/273248" class="movie js-movie--show" data-id="273248">
+			<img src="http://image.tmdb.org/t/p/w500//sSvgNBeBNzAuKl8U8sP50ETJPgx.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>The Hateful Eight</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/362876" class="movie js-movie--show" data-id="362876">
+			<img src="https://placeimg.com/500/281/any/grayscale/1" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Califórnia</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/135397" class="movie js-movie--show" data-id="135397">
+			<img src="http://image.tmdb.org/t/p/w500//dkMD5qlogeRMiEixC4YNPUvax2T.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Jurassic World</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/76341" class="movie js-movie--show" data-id="76341">
+			<img src="http://image.tmdb.org/t/p/w500//jxPeRkfOoWs6gFybOa8C4xrHLrm.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Mad Max: Fury Road</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/254128" class="movie js-movie--show" data-id="254128">
+			<img src="http://image.tmdb.org/t/p/w500//cUfGqafAVQkatQ7N4y08RNV3bgu.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>San Andreas</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/177572" class="movie js-movie--show" data-id="177572">
+			<img src="http://image.tmdb.org/t/p/w500//2BXd0t9JdVqCp9sKf6kzMkr7QjB.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Big Hero 6</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/150689" class="movie js-movie--show" data-id="150689">
+			<img src="http://image.tmdb.org/t/p/w500//xjjO3JIdneMBTsS282JffiPqfHW.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Cinderella</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/207703" class="movie js-movie--show" data-id="207703">
+			<img src="http://image.tmdb.org/t/p/w500//7LMp3YY6WrJEExwKEyVaQnRlC76.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Kingsman: The Secret Service</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/198184" class="movie js-movie--show" data-id="198184">
+			<img src="http://image.tmdb.org/t/p/w500//y5lG7TBpeOMG0jxAaTK0ghZSzBJ.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Chappie</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/157336" class="movie js-movie--show" data-id="157336">
+			<img src="http://image.tmdb.org/t/p/w500//xu9zaAevzQ5nnrsXN6JcahLnG4i.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Interstellar</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/122917" class="movie js-movie--show" data-id="122917">
+			<img src="http://image.tmdb.org/t/p/w500//qhH3GyIfAnGv1pjdV3mw03qAilg.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>The Hobbit: The Battle of the Five Armies</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/87101" class="movie js-movie--show" data-id="87101">
+			<img src="http://image.tmdb.org/t/p/w500//bIlYH4l2AyYvEysmS2AOfjO7Dn8.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Terminator Genisys</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/76757" class="movie js-movie--show" data-id="76757">
+			<img src="http://image.tmdb.org/t/p/w500//4liSXBZZdURI0c1Id1zLJo6Z3Gu.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Jupiter Ascending</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/205596" class="movie js-movie--show" data-id="205596">
+			<img src="http://image.tmdb.org/t/p/w500//fii9tPZTpy75qOCJBulWOb0ifGp.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>The Imitation Game</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/99861" class="movie js-movie--show" data-id="99861">
+			<img src="http://image.tmdb.org/t/p/w500//rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Avengers: Age of Ultron</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/118340" class="movie js-movie--show" data-id="118340">
+			<img src="http://image.tmdb.org/t/p/w500//bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Guardians of the Galaxy</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/158852" class="movie js-movie--show" data-id="158852">
+			<img src="http://image.tmdb.org/t/p/w500//kJre98tnbNXbk5L5altHkQWGwD3.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Tomorrowland</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/241554" class="movie js-movie--show" data-id="241554">
+			<img src="http://image.tmdb.org/t/p/w500//6zJCJtcxmMUU7pjL4Ss1xkeGiyX.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Run All Night</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/131631" class="movie js-movie--show" data-id="131631">
+			<img src="http://image.tmdb.org/t/p/w500//fUn5I5f4069vwGFEEvA3HXt9xPP.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>The Hunger Games: Mockingjay - Part 1</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/257091" class="movie js-movie--show" data-id="257091">
+			<img src="http://image.tmdb.org/t/p/w500//8dHsvdiZLBdppKwRiZ0XZYngbeN.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Get Hard</h2>
+			</span>
+		</a>
+	
+		<a href="/movie/260346" class="movie js-movie--show" data-id="260346">
+			<img src="http://image.tmdb.org/t/p/w500//razvUuLkF7CX4XsLyj02ksC0ayy.jpg" alt="" class="trans-img js-trans-img">
+
+			<span class="movie__info">
+				<h2>Taken 3</h2>
+			</span>
+		</a>
+	
+</div></div>
+
+<!-- Templates -->
+<script type="text/template" class="tmpl-movies">
+	<% _.each(movies, function(movie) { %>
+		<a href="/movie/<%= movie.id %>" class="movie js-movie--show" data-id="<%= movie.id %>">
+			<img src="<%= movie.backdrop_small %>" alt="" class="trans-img is-hidden js-trans-img">
+
+			<span class="movie__info">
+				<h2><%= movie.title %></h2>
+			</span>
+		</a>
+	<% }); %>
+</script>
+			
+<script type="text/template" class="tmpl-movie-detailed">
+	<div class="poster-holder js-img-placeholder">
+		<img src="<%= backdrop_large %>" alt="" class="movie-detailed__poster trans-img is-hidden js-trans-img">
+	</div>		
+	
+	<div class="movie-details">
+		<a href="/" class="action action--back js-action--back">
+			<svg height="80px" width="80px" class="action__icon action__icon--back" viewBox="0 0 80 80"><rect height="38" width="5" x="19" y="20.547"/><polygon points="46.371,59 49.906,55.465 36.488,42.047 61,42.047 61,37.047 36.652,37.047 49.906,23.793 46.371,20.258 27,39.629"/></svg>
+		</a>
+
+		<h1 class="movie-details__title"><%= title %></h1>
+
+		<div class="movie-details__content">
+			<p><%= overview %></p>
+		</div>
+
+		<button class="action action-watchlist--added js-watchlist--add">
+			<svg height="80px" width="80px" class="action__icon action__icon--add" viewBox="0 0 80 80"><polygon points="61,37 43,37 43,19 37,19 37,37 19,37 19,43 37,43 37,61 43,61 43,43 61,43 "/></svg>
+			Add to watchlist
+		</button>
+	</div>
+</script>
+	
+<script type="text/template" class="tmpl-watchlist">
+	<% if(this.collection.length <= 0) { %>
+		<div class="notification">
+			<img src="http://cdn.meme.am/instances2/500x/3145144.jpg" alt="" class="sadface" />
+		</div>
+	<% } %>
+</script>
+	
+<script type="text/template" class="tmpl-watchlist-movie">
+	<a href="/movie/<%= id %>" class="js-movie--show" data-id="<%= id %>">
+		<img src="<%= backdrop_small %>" alt="" class="trans-img is-hidden js-trans-img">
+
+		<span class="movie__info">
+			<h2><%= title %></h2>
+
+			<button class="action action-watchlist--remove js-watchlist--remove">
+				<svg height="80px" width="80px" class="action__icon action__icon--remove" viewBox="0 0 80 80"><polygon points="56.971,52.728 44.243,40 56.971,27.272 52.728,23.029 40,35.757 27.272,23.029 23.029,27.272 35.757,40 23.029,52.728 27.272,56.971 40,44.243 52.728,56.971"/></svg>
+			</button>
+		</span>
+	</a>
+</script>
+	
+<script type="text/template" class="tmpl-watchlist-movie-btn">
+	 <% if(!watchlist) { %>
+		<button class="action action-watchlist--added js-watchlist--add">
+			<svg height="80px" width="80px" class="action__icon action__icon--add" viewBox="0 0 80 80"><polygon points="61,37 43,37 43,19 37,19 37,37 19,37 19,43 37,43 37,61 43,61 43,43 61,43 "/></svg>
+			Add to watchlist
+		</button>
+	<% } else { %>
+		<button class="action action-watchlist--removed js-watchlist--remove">
+			<svg height="80px" width="80px" class="action__icon action__icon--remove" viewBox="0 0 80 80"><polygon points="56.971,52.728 44.243,40 56.971,27.272 52.728,23.029 40,35.757 27.272,23.029 23.029,27.272 35.757,40 23.029,52.728 27.272,56.971 40,44.243 52.728,56.971"/></svg>
+			Remove from watchlist
+		</button>
+	<% } %>
+</script>
+		
+<script type="text/template" class="tmpl-loader">
+	<div class="loader">Loading...</div>
+</script>
+<script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.3/backbone.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-localstorage.js/1.1.16/backbone.localStorage.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+<script>[
+{
+  "page": 1,
+  "results": [
+		{
+			"adult": false,
+			"backdrop_path": "/kiWvoV78Cc3fUwkOHKzyBgVdrDD.jpg",
+			"genre_ids": [18, 12],
+			"id": 281957,
+			"original_language": "en",
+			"original_title": "The Revenant",
+			"overview": "In the 1820s, a frontiersman, Hugh Glass, sets out on a path of vengeance against those who left him for dead after a bear mauling.",
+			"release_date": "2015-12-25",
+			"poster_path": "/oXUWEc5i3wYyFnL1Ycu8ppxxPvs.jpg",
+			"popularity": 2.295314,
+			"title": "The Revenant",
+			"video": false,
+			"vote_average": 5,
+			"vote_count": 20
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/pgSkCrrPO5NWZcvHpXG2l8DxTou.jpg",
+			"genre_ids": [28, 12, 878, 14],
+			"id": 140607,
+			"original_language": "en",
+			"original_title": "Star Wars: Episode VII - The Force Awakens",
+			"overview": "A continuation of the saga created by George Lucas, set thirty years after Star Wars: Episode VI – Return of the Jedi.",
+			"release_date": "2015-12-18",
+			"poster_path": "/fYzpM9GmpBlIC893fNjoWCwE24H.jpg",
+			"popularity": 12.066421,
+			"title": "Star Wars: Episode VII - The Force Awakens",
+			"video": false,
+			"vote_average": 7.8,
+			"vote_count": 115
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/qcWUzAumOrQyypDk0jcKlInhUgk.jpg",
+			"genre_ids": [28, 12, 18],
+			"id": 205775,
+			"original_language": "en",
+			"original_title": "In the Heart of the Sea",
+			"overview": "In the winter of 1820, the New England whaling ship Essex was assaulted by something no one could believe: a whale of mammoth size and will, and an almost human sense of vengeance.  The real-life maritime disaster would inspire Herman Melville’s Moby-Dick.",
+			"release_date": "2015-12-03",
+			"poster_path": "/uekIGnzTACciWrfR7jOuof7xHgR.jpg",
+			"popularity": 3.656257,
+			"title": "In the Heart of the Sea",
+			"video": false,
+			"vote_average": 3.2,
+			"vote_count": 27
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/sSvgNBeBNzAuKl8U8sP50ETJPgx.jpg",
+			"genre_ids": [37],
+			"id": 273248,
+			"original_language": "en",
+			"original_title": "The Hateful Eight",
+			"overview": "Bounty hunters seek shelter from a raging blizzard and get caught up in a plot of betrayal and deception.",
+			"release_date": "2015-12-25",
+			"poster_path": "/fqe8JxDNO8B8QfOGTdjh6sPCdSC.jpg",
+			"popularity": 1.066526,
+			"title": "The Hateful Eight",
+			"video": false,
+			"vote_average": 6,
+			"vote_count": 23
+		},
+		{
+			"adult": false,
+			"backdrop_path": null,
+			"genre_ids": [18],
+			"id": 362876,
+			"original_language": "pt",
+			"original_title": "Califórnia",
+			"overview": "The year is 1984. Estela is going through the turbulent phase of adolescence. Sex, lovers, friendships; everything seems very complicated. Her uncle Carlos is her hero, and visiting him in California is her biggest dream. But everything collapses when he returns thin, weak and ill. Between crises and discoveries, Estela will face a reality that will forever change her way of seeing the world.&#8203;",
+			"release_date": "2015-12-03",
+			"poster_path": "/eH7WQorZt1ub0cGZd1ZCMPfl9rP.jpg",
+			"popularity": 2.15236,
+			"title": "Califórnia",
+			"video": false,
+			"vote_average": 7.3,
+			"vote_count": 2
+		},
+    {
+      "adult": false,
+      "backdrop_path": "/dkMD5qlogeRMiEixC4YNPUvax2T.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        53
+      ],
+      "id": 135397,
+      "original_language": "en",
+      "original_title": "Jurassic World",
+      "overview": "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.",
+      "release_date": "2015-06-12",
+      "poster_path": "/uXZYawqUsChGSj54wcuBtEdUJbh.jpg",
+      "popularity": 88.551849,
+      "title": "Jurassic World",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 435
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jxPeRkfOoWs6gFybOa8C4xrHLrm.jpg",
+      "genre_ids": [
+        53,
+        28,
+        12
+      ],
+      "id": 76341,
+      "original_language": "en",
+      "original_title": "Mad Max: Fury Road",
+      "overview": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order. There's Max, a man of action and a man of few words, who seeks peace of mind following the loss of his wife and child in the aftermath of the chaos. And Furiosa, a woman of action and a woman who believes her path to survival may be achieved if she can make it across the desert back to her childhood homeland.",
+      "release_date": "2015-05-15",
+      "poster_path": "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+      "popularity": 35.88189,
+      "title": "Mad Max: Fury Road",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 815
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cUfGqafAVQkatQ7N4y08RNV3bgu.jpg",
+      "genre_ids": [
+        28,
+        18,
+        53
+      ],
+      "id": 254128,
+      "original_language": "en",
+      "original_title": "San Andreas",
+      "overview": "In the aftermath of a massive earthquake in California, a rescue-chopper pilot makes a dangerous journey across the state in order to rescue his estranged daughter.",
+      "release_date": "2015-05-29",
+      "poster_path": "/6iQ4CMtYorKFfAmXEpAQZMnA0Qe.jpg",
+      "popularity": 25.002,
+      "title": "San Andreas",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 234
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2BXd0t9JdVqCp9sKf6kzMkr7QjB.jpg",
+      "genre_ids": [
+        12,
+        10751,
+        16,
+        28,
+        35
+      ],
+      "id": 177572,
+      "original_language": "en",
+      "original_title": "Big Hero 6",
+      "overview": "The special bond that develops between plus-sized inflatable robot Baymax, and prodigy Hiro Hamada, who team up with a group of friends to form a band of high-tech heroes.",
+      "release_date": "2014-11-07",
+      "poster_path": "/3zQvuSAUdC3mrx9vnSEpkFX0968.jpg",
+      "popularity": 19.674015,
+      "title": "Big Hero 6",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 1471
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xjjO3JIdneMBTsS282JffiPqfHW.jpg",
+      "genre_ids": [
+        10749,
+        14,
+        10751,
+        18
+      ],
+      "id": 150689,
+      "original_language": "en",
+      "original_title": "Cinderella",
+      "overview": "When her father unexpectedly passes away, young Ella finds herself at the mercy of her cruel stepmother and her daughters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger in the woods.",
+      "release_date": "2015-03-13",
+      "poster_path": "/2i0JH5WqYFqki7WDhUW56Sg0obh.jpg",
+      "popularity": 18.919939,
+      "title": "Cinderella",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 276
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7LMp3YY6WrJEExwKEyVaQnRlC76.jpg",
+      "genre_ids": [
+        80,
+        35,
+        28,
+        12
+      ],
+      "id": 207703,
+      "original_language": "en",
+      "original_title": "Kingsman: The Secret Service",
+      "overview": "Kingsman: The Secret Service tells the story of a super-secret spy organization that recruits an unrefined but promising street kid into the agency's ultra-competitive training program just as a global threat emerges from a twisted tech genius.",
+      "release_date": "2015-02-13",
+      "poster_path": "/oAISjx6DvR2yUn9dxj00vP8OcJJ.jpg",
+      "popularity": 17.71923,
+      "title": "Kingsman: The Secret Service",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 1044
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/y5lG7TBpeOMG0jxAaTK0ghZSzBJ.jpg",
+      "genre_ids": [
+        28,
+        878,
+        53
+      ],
+      "id": 198184,
+      "original_language": "en",
+      "original_title": "Chappie",
+      "overview": "Every child comes into the world full of promise, and none more so than Chappie: he is gifted, special, a prodigy. Like any child, Chappie will come under the influence of his surroundings—some good, some bad—and he will rely on his heart and soul to find his way in the world and become his own man. But there's one thing that makes Chappie different from any one else: he is a robot.",
+      "release_date": "2015-03-06",
+      "poster_path": "/saF3HtAduvrP9ytXDxSnQJP3oqx.jpg",
+      "popularity": 17.66911,
+      "title": "Chappie",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 492
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xu9zaAevzQ5nnrsXN6JcahLnG4i.jpg",
+      "genre_ids": [
+        18,
+        878
+      ],
+      "id": 157336,
+      "original_language": "en",
+      "original_title": "Interstellar",
+      "overview": "Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+      "release_date": "2014-11-05",
+      "poster_path": "/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg",
+      "popularity": 16.688744,
+      "title": "Interstellar",
+      "video": false,
+      "vote_average": 8.4,
+      "vote_count": 2485
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qhH3GyIfAnGv1pjdV3mw03qAilg.jpg",
+      "genre_ids": [
+        12,
+        14
+      ],
+      "id": 122917,
+      "original_language": "en",
+      "original_title": "The Hobbit: The Battle of the Five Armies",
+      "overview": "Mere seconds after the events of \"Desolation\", Bilbo and Company continue to claim a mountain of treasure that was guarded long ago: But with Gandalf the Grey also facing some formidable foes of his own, the Hobbit is outmatched when the brutal army of orcs led by Azog the Defiler returns. But with other armies such as the elves and the men of Lake-Town, which are unsure to be trusted, are put to the ultimate test when Smaug's wrath, Azog's sheer strength, and Sauron's force of complete ends attack. All in all, the trusted armies have two choices: unite or die. But even worse, Bilbo gets put on a knife edge and finds himself fighting with Hobbit warfare with all of his might for his dwarf-friends, as the hope for Middle-Earth is all put in Bilbo's hands. The one \"precious\" thing to end it all.",
+      "release_date": "2014-12-17",
+      "poster_path": "/qrFwjJ5nvFnpBCmXLI4YoeHJNBH.jpg",
+      "popularity": 16.434565,
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 1470
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bIlYH4l2AyYvEysmS2AOfjO7Dn8.jpg",
+      "genre_ids": [
+        878,
+        28,
+        53,
+        12
+      ],
+      "id": 87101,
+      "original_language": "en",
+      "original_title": "Terminator Genisys",
+      "overview": "The year is 2029. John Connor, leader of the resistance continues the war against the machines. At the Los Angeles offensive, John's fears of the unknown future begin to emerge when TECOM spies reveal a new plot by SkyNet that will attack him from both fronts; past and future, and will ultimately change warfare forever.",
+      "release_date": "2015-07-01",
+      "poster_path": "/qOoFD4HD9a2EEUymdzBQN9XF1UJ.jpg",
+      "popularity": 15.394013,
+      "title": "Terminator Genisys",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 35
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4liSXBZZdURI0c1Id1zLJo6Z3Gu.jpg",
+      "genre_ids": [
+        878,
+        14,
+        28,
+        12
+      ],
+      "id": 76757,
+      "original_language": "en",
+      "original_title": "Jupiter Ascending",
+      "overview": "In a universe where human genetic material is the most precious commodity, an impoverished young Earth woman becomes the key to strategic maneuvers and internal strife within a powerful dynasty…",
+      "release_date": "2015-02-27",
+      "poster_path": "/aMEsvTUklw0uZ3gk3Q6lAj6302a.jpg",
+      "popularity": 15.209428,
+      "title": "Jupiter Ascending",
+      "video": false,
+      "vote_average": 5.4,
+      "vote_count": 682
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fii9tPZTpy75qOCJBulWOb0ifGp.jpg",
+      "genre_ids": [
+        18,
+        36,
+        53,
+        10752
+      ],
+      "id": 205596,
+      "original_language": "en",
+      "original_title": "The Imitation Game",
+      "overview": "Based on the real life story of legendary cryptanalyst Alan Turing, the film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain's top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.",
+      "release_date": "2014-11-14",
+      "poster_path": "/noUp0XOqIcmgefRnRZa1nhtRvWO.jpg",
+      "popularity": 14.06502,
+      "title": "The Imitation Game",
+      "video": false,
+      "vote_average": 8.1,
+      "vote_count": 1222
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg",
+      "genre_ids": [
+        12,
+        878,
+        28
+      ],
+      "id": 99861,
+      "original_language": "en",
+      "original_title": "Avengers: Age of Ultron",
+      "overview": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+      "release_date": "2015-05-01",
+      "poster_path": "/t90Y3G8UGQp0f0DrP60wRu9gfrH.jpg",
+      "popularity": 14.81874,
+      "title": "Avengers: Age of Ultron",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 1259
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg",
+      "genre_ids": [
+        878,
+        14,
+        12
+      ],
+      "id": 118340,
+      "original_language": "en",
+      "original_title": "Guardians of the Galaxy",
+      "overview": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+      "release_date": "2014-08-01",
+      "poster_path": "/9gm3lL8JMTTmc3W4BmNMCuRLdL8.jpg",
+      "popularity": 14.51119,
+      "title": "Guardians of the Galaxy",
+      "video": false,
+      "vote_average": 8.2,
+      "vote_count": 2706
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kJre98tnbNXbk5L5altHkQWGwD3.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        9648
+      ],
+      "id": 158852,
+      "original_language": "en",
+      "original_title": "Tomorrowland",
+      "overview": "Bound by a shared destiny, a bright, optimistic teen bursting with scientific curiosity and a former boy-genius inventor jaded by disillusionment embark on a danger-filled mission to unearth the secrets of an enigmatic place somewhere in time and space that exists in their collective memory as \"Tomorrowland.\"",
+      "release_date": "2015-05-22",
+      "poster_path": "/69Cz9VNQZy39fUE2g0Ggth6SBTM.jpg",
+      "popularity": 14.07089,
+      "title": "Tomorrowland",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 239
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6zJCJtcxmMUU7pjL4Ss1xkeGiyX.jpg",
+      "genre_ids": [
+        28,
+        80,
+        18,
+        9648,
+        53
+      ],
+      "id": 241554,
+      "original_language": "en",
+      "original_title": "Run All Night",
+      "overview": "Brooklyn mobster and prolific hit man Jimmy Conlon, once known as The Gravedigger, has seen better days. Longtime best friend of mob boss. Jimmy, now 55, is haunted by the sins of his past—as well as a dogged police detective who’s been one step behind Jimmy for 30 years. But when Jimmy’s estranged son, becomes a target, Jimmy must make a choice between the crime family he chose and the real family he abandoned long ago. Now, with nowhere safe to turn, Jimmy just has one night to figure out exactly where his loyalties lie and to see if he can finally make things right.",
+      "release_date": "2015-03-13",
+      "poster_path": "/aqNJrAxudMRNo8jg3HOUQqdl2xr.jpg",
+      "popularity": 13.651485,
+      "title": "Run All Night",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 162
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fUn5I5f4069vwGFEEvA3HXt9xPP.jpg",
+      "genre_ids": [
+        878,
+        12,
+        53
+      ],
+      "id": 131631,
+      "original_language": "en",
+      "original_title": "The Hunger Games: Mockingjay - Part 1",
+      "overview": "Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.",
+      "release_date": "2014-11-20",
+      "poster_path": "/cWERd8rgbw7bCMZlwP207HUXxym.jpg",
+      "popularity": 12.730425,
+      "title": "The Hunger Games: Mockingjay - Part 1",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 1379
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8dHsvdiZLBdppKwRiZ0XZYngbeN.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 257091,
+      "original_language": "en",
+      "original_title": "Get Hard",
+      "overview": "When obscenely rich hedge-fund manager James is convicted of fraud and sentenced to a stretch in San Quentin, the judge gives him one month to get his affairs in order. Knowing that he won't survive more than a few minutes in prison on his own, James desperately turns to Darnell-- a black businessman who's never even had a parking ticket -- for help. As Darnell puts James through the wringer, both learn that they were wrong about many things, including each other.",
+      "release_date": "2015-03-27",
+      "poster_path": "/qRzUSrN4p6B7fzA5XGm4ebFg3co.jpg",
+      "popularity": 11.9924,
+      "title": "Get Hard",
+      "video": false,
+      "vote_average": 6,
+      "vote_count": 122
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/razvUuLkF7CX4XsLyj02ksC0ayy.jpg",
+      "genre_ids": [
+        80,
+        28,
+        53
+      ],
+      "id": 260346,
+      "original_language": "en",
+      "original_title": "Taken 3",
+      "overview": "Ex-government operative Bryan Mills finds his life is shattered when he's falsely accused of a murder that hits close to home. As he's pursued by a savvy police inspector, Mills employs his particular set of skills to track the real killer and exact his unique brand of justice.",
+      "release_date": "2015-01-09",
+      "poster_path": "/c2SSjUVYawDUnQ92bmTqsZsPEiB.jpg",
+      "popularity": 11.737899,
+      "title": "Taken 3",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 698
+    }
+  ],
+  "total_pages": 11324,
+  "total_results": 226478
+}
+]</script>
+<script>[
+{
+  "page": 1,
+  "results": [
+		{
+			"adult": false,
+			"backdrop_path": "/pgSkCrrPO5NWZcvHpXG2l8DxTou.jpg",
+			"genre_ids": [28, 12, 878, 14],
+			"id": 140607,
+			"original_language": "en",
+			"original_title": "Star Wars: Episode VII - The Force Awakens",
+			"release_date": "2015-12-18",
+			"poster_path": "/fYzpM9GmpBlIC893fNjoWCwE24H.jpg",
+			"popularity": 12.066421,
+			"title": "Star Wars: Episode VII - The Force Awakens",
+			"video": false,
+			"vote_average": 7.8,
+			"vote_count": 115
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/qcWUzAumOrQyypDk0jcKlInhUgk.jpg",
+			"genre_ids": [28, 12, 18],
+			"id": 205775,
+			"original_language": "en",
+			"original_title": "In the Heart of the Sea",
+			"release_date": "2015-12-03",
+			"poster_path": "/uekIGnzTACciWrfR7jOuof7xHgR.jpg",
+			"popularity": 3.656257,
+			"title": "In the Heart of the Sea",
+			"video": false,
+			"vote_average": 3.2,
+			"vote_count": 27
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/nVSgTI6DaX81lioSDKq9hKfB5s8.jpg",
+			"genre_ids": [35, 14, 27],
+			"id": 287903,
+			"original_language": "en",
+			"original_title": "Krampus",
+			"release_date": "2015-12-04",
+			"poster_path": "/fMrnNeTMHoCcW2zPmBI53l70zSK.jpg",
+			"popularity": 2.704657,
+			"title": "Krampus",
+			"video": false,
+			"vote_average": 5.2,
+			"vote_count": 11
+		},
+		{
+			"adult": false,
+			"backdrop_path": null,
+			"genre_ids": [18],
+			"id": 362876,
+			"original_language": "pt",
+			"original_title": "Califórnia",
+			"overview": "The year is 1984. Estela is going through the turbulent phase of adolescence. Sex, lovers, friendships; everything seems very complicated. Her uncle Carlos is her hero, and visiting him in California is her biggest dream. But everything collapses when he returns thin, weak and ill. Between crises and discoveries, Estela will face a reality that will forever change her way of seeing the world.&#8203;",
+			"release_date": "2015-12-03",
+			"poster_path": "/eH7WQorZt1ub0cGZd1ZCMPfl9rP.jpg",
+			"popularity": 2.15236,
+			"video": false,
+			"vote_average": 7.3,
+			"vote_count": 2
+		},
+    {
+      "adult": false,
+      "backdrop_path": "/dkMD5qlogeRMiEixC4YNPUvax2T.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        53
+      ],
+      "id": 135397,
+      "original_language": "en",
+      "original_title": "Jurassic World",
+      "overview": "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.",
+      "release_date": "2015-06-12",
+      "poster_path": "/uXZYawqUsChGSj54wcuBtEdUJbh.jpg",
+      "popularity": 88.551849,
+      "title": "Jurassic World",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 435
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jxPeRkfOoWs6gFybOa8C4xrHLrm.jpg",
+      "genre_ids": [
+        53,
+        28,
+        12
+      ],
+      "id": 76341,
+      "original_language": "en",
+      "original_title": "Mad Max: Fury Road",
+      "overview": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order. There's Max, a man of action and a man of few words, who seeks peace of mind following the loss of his wife and child in the aftermath of the chaos. And Furiosa, a woman of action and a woman who believes her path to survival may be achieved if she can make it across the desert back to her childhood homeland.",
+      "release_date": "2015-05-15",
+      "poster_path": "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+      "popularity": 35.88189,
+      "title": "Mad Max: Fury Road",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 815
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cUfGqafAVQkatQ7N4y08RNV3bgu.jpg",
+      "genre_ids": [
+        28,
+        18,
+        53
+      ],
+      "id": 254128,
+      "original_language": "en",
+      "original_title": "San Andreas",
+      "overview": "In the aftermath of a massive earthquake in California, a rescue-chopper pilot makes a dangerous journey across the state in order to rescue his estranged daughter.",
+      "release_date": "2015-05-29",
+      "poster_path": "/6iQ4CMtYorKFfAmXEpAQZMnA0Qe.jpg",
+      "popularity": 25.002,
+      "title": "San Andreas",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 234
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2BXd0t9JdVqCp9sKf6kzMkr7QjB.jpg",
+      "genre_ids": [
+        12,
+        10751,
+        16,
+        28,
+        35
+      ],
+      "id": 177572,
+      "original_language": "en",
+      "original_title": "Big Hero 6",
+      "overview": "The special bond that develops between plus-sized inflatable robot Baymax, and prodigy Hiro Hamada, who team up with a group of friends to form a band of high-tech heroes.",
+      "release_date": "2014-11-07",
+      "poster_path": "/3zQvuSAUdC3mrx9vnSEpkFX0968.jpg",
+      "popularity": 19.674015,
+      "title": "Big Hero 6",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 1471
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xjjO3JIdneMBTsS282JffiPqfHW.jpg",
+      "genre_ids": [
+        10749,
+        14,
+        10751,
+        18
+      ],
+      "id": 150689,
+      "original_language": "en",
+      "original_title": "Cinderella",
+      "overview": "When her father unexpectedly passes away, young Ella finds herself at the mercy of her cruel stepmother and her daughters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger in the woods.",
+      "release_date": "2015-03-13",
+      "poster_path": "/2i0JH5WqYFqki7WDhUW56Sg0obh.jpg",
+      "popularity": 18.919939,
+      "title": "Cinderella",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 276
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7LMp3YY6WrJEExwKEyVaQnRlC76.jpg",
+      "genre_ids": [
+        80,
+        35,
+        28,
+        12
+      ],
+      "id": 207703,
+      "original_language": "en",
+      "original_title": "Kingsman: The Secret Service",
+      "overview": "Kingsman: The Secret Service tells the story of a super-secret spy organization that recruits an unrefined but promising street kid into the agency's ultra-competitive training program just as a global threat emerges from a twisted tech genius.",
+      "release_date": "2015-02-13",
+      "poster_path": "/oAISjx6DvR2yUn9dxj00vP8OcJJ.jpg",
+      "popularity": 17.71923,
+      "title": "Kingsman: The Secret Service",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 1044
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/y5lG7TBpeOMG0jxAaTK0ghZSzBJ.jpg",
+      "genre_ids": [
+        28,
+        878,
+        53
+      ],
+      "id": 198184,
+      "original_language": "en",
+      "original_title": "Chappie",
+      "overview": "Every child comes into the world full of promise, and none more so than Chappie: he is gifted, special, a prodigy. Like any child, Chappie will come under the influence of his surroundings—some good, some bad—and he will rely on his heart and soul to find his way in the world and become his own man. But there's one thing that makes Chappie different from any one else: he is a robot.",
+      "release_date": "2015-03-06",
+      "poster_path": "/saF3HtAduvrP9ytXDxSnQJP3oqx.jpg",
+      "popularity": 17.66911,
+      "title": "Chappie",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 492
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xu9zaAevzQ5nnrsXN6JcahLnG4i.jpg",
+      "genre_ids": [
+        18,
+        878
+      ],
+      "id": 157336,
+      "original_language": "en",
+      "original_title": "Interstellar",
+      "overview": "Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+      "release_date": "2014-11-05",
+      "poster_path": "/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg",
+      "popularity": 16.688744,
+      "title": "Interstellar",
+      "video": false,
+      "vote_average": 8.4,
+      "vote_count": 2485
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qhH3GyIfAnGv1pjdV3mw03qAilg.jpg",
+      "genre_ids": [
+        12,
+        14
+      ],
+      "id": 122917,
+      "original_language": "en",
+      "original_title": "The Hobbit: The Battle of the Five Armies",
+      "overview": "Mere seconds after the events of \"Desolation\", Bilbo and Company continue to claim a mountain of treasure that was guarded long ago: But with Gandalf the Grey also facing some formidable foes of his own, the Hobbit is outmatched when the brutal army of orcs led by Azog the Defiler returns. But with other armies such as the elves and the men of Lake-Town, which are unsure to be trusted, are put to the ultimate test when Smaug's wrath, Azog's sheer strength, and Sauron's force of complete ends attack. All in all, the trusted armies have two choices: unite or die. But even worse, Bilbo gets put on a knife edge and finds himself fighting with Hobbit warfare with all of his might for his dwarf-friends, as the hope for Middle-Earth is all put in Bilbo's hands. The one \"precious\" thing to end it all.",
+      "release_date": "2014-12-17",
+      "poster_path": "/qrFwjJ5nvFnpBCmXLI4YoeHJNBH.jpg",
+      "popularity": 16.434565,
+      "title": "The Hobbit: The Battle of the Five Armies",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 1470
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bIlYH4l2AyYvEysmS2AOfjO7Dn8.jpg",
+      "genre_ids": [
+        878,
+        28,
+        53,
+        12
+      ],
+      "id": 87101,
+      "original_language": "en",
+      "original_title": "Terminator Genisys",
+      "overview": "The year is 2029. John Connor, leader of the resistance continues the war against the machines. At the Los Angeles offensive, John's fears of the unknown future begin to emerge when TECOM spies reveal a new plot by SkyNet that will attack him from both fronts; past and future, and will ultimately change warfare forever.",
+      "release_date": "2015-07-01",
+      "poster_path": "/qOoFD4HD9a2EEUymdzBQN9XF1UJ.jpg",
+      "popularity": 15.394013,
+      "title": "Terminator Genisys",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 35
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4liSXBZZdURI0c1Id1zLJo6Z3Gu.jpg",
+      "genre_ids": [
+        878,
+        14,
+        28,
+        12
+      ],
+      "id": 76757,
+      "original_language": "en",
+      "original_title": "Jupiter Ascending",
+      "overview": "In a universe where human genetic material is the most precious commodity, an impoverished young Earth woman becomes the key to strategic maneuvers and internal strife within a powerful dynasty…",
+      "release_date": "2015-02-27",
+      "poster_path": "/aMEsvTUklw0uZ3gk3Q6lAj6302a.jpg",
+      "popularity": 15.209428,
+      "title": "Jupiter Ascending",
+      "video": false,
+      "vote_average": 5.4,
+      "vote_count": 682
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fii9tPZTpy75qOCJBulWOb0ifGp.jpg",
+      "genre_ids": [
+        18,
+        36,
+        53,
+        10752
+      ],
+      "id": 205596,
+      "original_language": "en",
+      "original_title": "The Imitation Game",
+      "overview": "Based on the real life story of legendary cryptanalyst Alan Turing, the film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain's top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.",
+      "release_date": "2014-11-14",
+      "poster_path": "/noUp0XOqIcmgefRnRZa1nhtRvWO.jpg",
+      "popularity": 14.06502,
+      "title": "The Imitation Game",
+      "video": false,
+      "vote_average": 8.1,
+      "vote_count": 1222
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg",
+      "genre_ids": [
+        12,
+        878,
+        28
+      ],
+      "id": 99861,
+      "original_language": "en",
+      "original_title": "Avengers: Age of Ultron",
+      "overview": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+      "release_date": "2015-05-01",
+      "poster_path": "/t90Y3G8UGQp0f0DrP60wRu9gfrH.jpg",
+      "popularity": 14.81874,
+      "title": "Avengers: Age of Ultron",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 1259
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg",
+      "genre_ids": [
+        878,
+        14,
+        12
+      ],
+      "id": 118340,
+      "original_language": "en",
+      "original_title": "Guardians of the Galaxy",
+      "overview": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+      "release_date": "2014-08-01",
+      "poster_path": "/9gm3lL8JMTTmc3W4BmNMCuRLdL8.jpg",
+      "popularity": 14.51119,
+      "title": "Guardians of the Galaxy",
+      "video": false,
+      "vote_average": 8.2,
+      "vote_count": 2706
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kJre98tnbNXbk5L5altHkQWGwD3.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        9648
+      ],
+      "id": 158852,
+      "original_language": "en",
+      "original_title": "Tomorrowland",
+      "overview": "Bound by a shared destiny, a bright, optimistic teen bursting with scientific curiosity and a former boy-genius inventor jaded by disillusionment embark on a danger-filled mission to unearth the secrets of an enigmatic place somewhere in time and space that exists in their collective memory as \"Tomorrowland.\"",
+      "release_date": "2015-05-22",
+      "poster_path": "/69Cz9VNQZy39fUE2g0Ggth6SBTM.jpg",
+      "popularity": 14.07089,
+      "title": "Tomorrowland",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 239
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6zJCJtcxmMUU7pjL4Ss1xkeGiyX.jpg",
+      "genre_ids": [
+        28,
+        80,
+        18,
+        9648,
+        53
+      ],
+      "id": 241554,
+      "original_language": "en",
+      "original_title": "Run All Night",
+      "overview": "Brooklyn mobster and prolific hit man Jimmy Conlon, once known as The Gravedigger, has seen better days. Longtime best friend of mob boss. Jimmy, now 55, is haunted by the sins of his past—as well as a dogged police detective who’s been one step behind Jimmy for 30 years. But when Jimmy’s estranged son, becomes a target, Jimmy must make a choice between the crime family he chose and the real family he abandoned long ago. Now, with nowhere safe to turn, Jimmy just has one night to figure out exactly where his loyalties lie and to see if he can finally make things right.",
+      "release_date": "2015-03-13",
+      "poster_path": "/aqNJrAxudMRNo8jg3HOUQqdl2xr.jpg",
+      "popularity": 13.651485,
+      "title": "Run All Night",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 162
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fUn5I5f4069vwGFEEvA3HXt9xPP.jpg",
+      "genre_ids": [
+        878,
+        12,
+        53
+      ],
+      "id": 131631,
+      "original_language": "en",
+      "original_title": "The Hunger Games: Mockingjay - Part 1",
+      "overview": "Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.",
+      "release_date": "2014-11-20",
+      "poster_path": "/cWERd8rgbw7bCMZlwP207HUXxym.jpg",
+      "popularity": 12.730425,
+      "title": "The Hunger Games: Mockingjay - Part 1",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 1379
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/anItUS64TeGKPv6MJ99DMv7o0Z0.jpg",
+      "genre_ids": [
+        35,
+        10402
+      ],
+      "id": 254470,
+      "original_language": "en",
+      "original_title": "Pitch Perfect 2",
+      "overview": "The Bellas are back, and they are better than ever. After being humiliated in front of none other than the President of the United States of America, the Bellas are taken out of the Aca-Circuit. In order to clear their name, and regain their status, the Bellas take on a seemingly impossible task: winning an international competition no American team has ever won. In order to accomplish this monumental task, they need to strengthen the bonds of friendship and sisterhood and blow away the competition with their amazing aca-magic! With all new friends and old rivals tagging along for the trip, the Bellas can hopefully accomplish their dreams.",
+      "release_date": "2015-05-15",
+      "poster_path": "/qSjruLiFB4uqRtz2xheQPxG8uaB.jpg",
+      "popularity": 12.179013,
+      "title": "Pitch Perfect 2",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 189
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8dHsvdiZLBdppKwRiZ0XZYngbeN.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 257091,
+      "original_language": "en",
+      "original_title": "Get Hard",
+      "overview": "When obscenely rich hedge-fund manager James is convicted of fraud and sentenced to a stretch in San Quentin, the judge gives him one month to get his affairs in order. Knowing that he won't survive more than a few minutes in prison on his own, James desperately turns to Darnell-- a black businessman who's never even had a parking ticket -- for help. As Darnell puts James through the wringer, both learn that they were wrong about many things, including each other.",
+      "release_date": "2015-03-27",
+      "poster_path": "/qRzUSrN4p6B7fzA5XGm4ebFg3co.jpg",
+      "popularity": 11.9924,
+      "title": "Get Hard",
+      "video": false,
+      "vote_average": 6,
+      "vote_count": 122
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/razvUuLkF7CX4XsLyj02ksC0ayy.jpg",
+      "genre_ids": [
+        80,
+        28,
+        53
+      ],
+      "id": 260346,
+      "original_language": "en",
+      "original_title": "Taken 3",
+      "overview": "Ex-government operative Bryan Mills finds his life is shattered when he's falsely accused of a murder that hits close to home. As he's pursued by a savvy police inspector, Mills employs his particular set of skills to track the real killer and exact his unique brand of justice.",
+      "release_date": "2015-01-09",
+      "poster_path": "/c2SSjUVYawDUnQ92bmTqsZsPEiB.jpg",
+      "popularity": 11.737899,
+      "title": "Taken 3",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 698
+    }
+  ],
+  "total_pages": 11324,
+  "total_results": 226478
+}
+]</script>
+<script>[
+{
+  "page": 1,
+  "results": [
+		{
+			"adult": false,
+			"backdrop_path": "/pgSkCrrPO5NWZcvHpXG2l8DxTou.jpg",
+			"genre_ids": [28, 12, 878, 14],
+			"id": 140607,
+			"original_language": "en",
+			"original_title": "Star Wars: Episode VII - The Force Awakens",
+			"excerpt": "A continuation of the saga created by George Lucas, set thirty years after Star Wars: Episode VI – Return of the Jedi.",
+			"release_date": "2015-12-18",
+			"poster_path": "/fYzpM9GmpBlIC893fNjoWCwE24H.jpg",
+			"popularity": 12.066421,
+			"heading": "Star Wars: Episode VII - The Force Awakens",
+			"video": false,
+			"vote_average": 7.8,
+			"vote_count": 115
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/qcWUzAumOrQyypDk0jcKlInhUgk.jpg",
+			"genre_ids": [28, 12, 18],
+			"id": 205775,
+			"original_language": "en",
+			"original_title": "In the Heart of the Sea",
+			"excerpt": "In the winter of 1820, the New England whaling ship Essex was assaulted by something no one could believe: a whale of mammoth size and will, and an almost human sense of vengeance.  The real-life maritime disaster would inspire Herman Melville’s Moby-Dick.&nbsp; But that told only half the story.&nbsp; “Heart of the Sea” reveals the encounter’s harrowing aftermath, as the ship’s surviving crew is pushed to their limits and forced to do the unthinkable to stay alive.&nbsp; Braving storms, starvation, panic and despair, the men will call into question their deepest beliefs, from the value of their lives to the morality of their trade, as their captain searches for direction on the open sea and his first mate still seeks to bring the great whale down.",
+			"release_date": "2015-12-03",
+			"poster_path": "/uekIGnzTACciWrfR7jOuof7xHgR.jpg",
+			"popularity": 3.656257,
+			"heading": "In the Heart of the Sea",
+			"video": false,
+			"vote_average": 3.2,
+			"vote_count": 27
+		},
+		{
+			"adult": false,
+			"backdrop_path": "/nVSgTI6DaX81lioSDKq9hKfB5s8.jpg",
+			"genre_ids": [35, 14, 27],
+			"id": 287903,
+			"original_language": "en",
+			"original_title": "Krampus",
+			"excerpt": "A horror comedy based on the ancient legend about a pagan creature who punishes children on Christmas.",
+			"release_date": "2015-12-04",
+			"poster_path": "/fMrnNeTMHoCcW2zPmBI53l70zSK.jpg",
+			"popularity": 2.704657,
+			"heading": "Krampus",
+			"video": false,
+			"vote_average": 5.2,
+			"vote_count": 11
+		},
+		{
+			"adult": false,
+			"backdrop_path": null,
+			"genre_ids": [18],
+			"id": 362876,
+			"original_language": "pt",
+			"original_title": "Califórnia",
+			"excerpt": "The year is 1984. Estela is going through the turbulent phase of adolescence. Sex, lovers, friendships; everything seems very complicated. Her uncle Carlos is her hero, and visiting him in California is her biggest dream. But everything collapses when he returns thin, weak and ill. Between crises and discoveries, Estela will face a reality that will forever change her way of seeing the world.&#8203;",
+			"release_date": "2015-12-03",
+			"poster_path": "/eH7WQorZt1ub0cGZd1ZCMPfl9rP.jpg",
+			"popularity": 2.15236,
+			"heading": "Califórnia",
+			"video": false,
+			"vote_average": 7.3,
+			"vote_count": 2
+		},
+    {
+      "adult": false,
+      "backdrop_path": "/dkMD5qlogeRMiEixC4YNPUvax2T.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        53
+      ],
+      "id": 135397,
+      "original_language": "en",
+      "original_title": "Jurassic World",
+      "excerpt": "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.",
+      "release_date": "2015-06-12",
+      "poster_path": "/uXZYawqUsChGSj54wcuBtEdUJbh.jpg",
+      "popularity": 88.551849,
+      "heading": "Jurassic World",
+      "video": false,
+      "vote_average": 7.1,
+      "vote_count": 435
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jxPeRkfOoWs6gFybOa8C4xrHLrm.jpg",
+      "genre_ids": [
+        53,
+        28,
+        12
+      ],
+      "id": 76341,
+      "original_language": "en",
+      "original_title": "Mad Max: Fury Road",
+      "excerpt": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order. There's Max, a man of action and a man of few words, who seeks peace of mind following the loss of his wife and child in the aftermath of the chaos. And Furiosa, a woman of action and a woman who believes her path to survival may be achieved if she can make it across the desert back to her childhood homeland.",
+      "release_date": "2015-05-15",
+      "poster_path": "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+      "popularity": 35.88189,
+      "heading": "Mad Max: Fury Road",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 815
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cUfGqafAVQkatQ7N4y08RNV3bgu.jpg",
+      "genre_ids": [
+        28,
+        18,
+        53
+      ],
+      "id": 254128,
+      "original_language": "en",
+      "original_title": "San Andreas",
+      "excerpt": "In the aftermath of a massive earthquake in California, a rescue-chopper pilot makes a dangerous journey across the state in order to rescue his estranged daughter.",
+      "release_date": "2015-05-29",
+      "poster_path": "/6iQ4CMtYorKFfAmXEpAQZMnA0Qe.jpg",
+      "popularity": 25.002,
+      "heading": "San Andreas",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 234
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2BXd0t9JdVqCp9sKf6kzMkr7QjB.jpg",
+      "genre_ids": [
+        12,
+        10751,
+        16,
+        28,
+        35
+      ],
+      "id": 177572,
+      "original_language": "en",
+      "original_title": "Big Hero 6",
+      "excerpt": "The special bond that develops between plus-sized inflatable robot Baymax, and prodigy Hiro Hamada, who team up with a group of friends to form a band of high-tech heroes.",
+      "release_date": "2014-11-07",
+      "poster_path": "/3zQvuSAUdC3mrx9vnSEpkFX0968.jpg",
+      "popularity": 19.674015,
+      "heading": "Big Hero 6",
+      "video": false,
+      "vote_average": 7.9,
+      "vote_count": 1471
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xjjO3JIdneMBTsS282JffiPqfHW.jpg",
+      "genre_ids": [
+        10749,
+        14,
+        10751,
+        18
+      ],
+      "id": 150689,
+      "original_language": "en",
+      "original_title": "Cinderella",
+      "excerpt": "When her father unexpectedly passes away, young Ella finds herself at the mercy of her cruel stepmother and her daughters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger in the woods.",
+      "release_date": "2015-03-13",
+      "poster_path": "/2i0JH5WqYFqki7WDhUW56Sg0obh.jpg",
+      "popularity": 18.919939,
+      "heading": "Cinderella",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 276
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7LMp3YY6WrJEExwKEyVaQnRlC76.jpg",
+      "genre_ids": [
+        80,
+        35,
+        28,
+        12
+      ],
+      "id": 207703,
+      "original_language": "en",
+      "original_title": "Kingsman: The Secret Service",
+      "excerpt": "Kingsman: The Secret Service tells the story of a super-secret spy organization that recruits an unrefined but promising street kid into the agency's ultra-competitive training program just as a global threat emerges from a twisted tech genius.",
+      "release_date": "2015-02-13",
+      "poster_path": "/oAISjx6DvR2yUn9dxj00vP8OcJJ.jpg",
+      "popularity": 17.71923,
+      "heading": "Kingsman: The Secret Service",
+      "video": false,
+      "vote_average": 7.7,
+      "vote_count": 1044
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/y5lG7TBpeOMG0jxAaTK0ghZSzBJ.jpg",
+      "genre_ids": [
+        28,
+        878,
+        53
+      ],
+      "id": 198184,
+      "original_language": "en",
+      "original_title": "Chappie",
+      "excerpt": "Every child comes into the world full of promise, and none more so than Chappie: he is gifted, special, a prodigy. Like any child, Chappie will come under the influence of his surroundings—some good, some bad—and he will rely on his heart and soul to find his way in the world and become his own man. But there's one thing that makes Chappie different from any one else: he is a robot.",
+      "release_date": "2015-03-06",
+      "poster_path": "/saF3HtAduvrP9ytXDxSnQJP3oqx.jpg",
+      "popularity": 17.66911,
+      "heading": "Chappie",
+      "video": false,
+      "vote_average": 6.7,
+      "vote_count": 492
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xu9zaAevzQ5nnrsXN6JcahLnG4i.jpg",
+      "genre_ids": [
+        18,
+        878
+      ],
+      "id": 157336,
+      "original_language": "en",
+      "original_title": "Interstellar",
+      "excerpt": "Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+      "release_date": "2014-11-05",
+      "poster_path": "/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg",
+      "popularity": 16.688744,
+      "heading": "Interstellar",
+      "video": false,
+      "vote_average": 8.4,
+      "vote_count": 2485
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qhH3GyIfAnGv1pjdV3mw03qAilg.jpg",
+      "genre_ids": [
+        12,
+        14
+      ],
+      "id": 122917,
+      "original_language": "en",
+      "original_title": "The Hobbit: The Battle of the Five Armies",
+      "excerpt": "Mere seconds after the events of \"Desolation\", Bilbo and Company continue to claim a mountain of treasure that was guarded long ago: But with Gandalf the Grey also facing some formidable foes of his own, the Hobbit is outmatched when the brutal army of orcs led by Azog the Defiler returns. But with other armies such as the elves and the men of Lake-Town, which are unsure to be trusted, are put to the ultimate test when Smaug's wrath, Azog's sheer strength, and Sauron's force of complete ends attack. All in all, the trusted armies have two choices: unite or die. But even worse, Bilbo gets put on a knife edge and finds himself fighting with Hobbit warfare with all of his might for his dwarf-friends, as the hope for Middle-Earth is all put in Bilbo's hands. The one \"precious\" thing to end it all.",
+      "release_date": "2014-12-17",
+      "poster_path": "/qrFwjJ5nvFnpBCmXLI4YoeHJNBH.jpg",
+      "popularity": 16.434565,
+      "heading": "The Hobbit: The Battle of the Five Armies",
+      "video": false,
+      "vote_average": 7.2,
+      "vote_count": 1470
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bIlYH4l2AyYvEysmS2AOfjO7Dn8.jpg",
+      "genre_ids": [
+        878,
+        28,
+        53,
+        12
+      ],
+      "id": 87101,
+      "original_language": "en",
+      "original_title": "Terminator Genisys",
+      "excerpt": "The year is 2029. John Connor, leader of the resistance continues the war against the machines. At the Los Angeles offensive, John's fears of the unknown future begin to emerge when TECOM spies reveal a new plot by SkyNet that will attack him from both fronts; past and future, and will ultimately change warfare forever.",
+      "release_date": "2015-07-01",
+      "poster_path": "/qOoFD4HD9a2EEUymdzBQN9XF1UJ.jpg",
+      "popularity": 15.394013,
+      "heading": "Terminator Genisys",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 35
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4liSXBZZdURI0c1Id1zLJo6Z3Gu.jpg",
+      "genre_ids": [
+        878,
+        14,
+        28,
+        12
+      ],
+      "id": 76757,
+      "original_language": "en",
+      "original_title": "Jupiter Ascending",
+      "excerpt": "In a universe where human genetic material is the most precious commodity, an impoverished young Earth woman becomes the key to strategic maneuvers and internal strife within a powerful dynasty…",
+      "release_date": "2015-02-27",
+      "poster_path": "/aMEsvTUklw0uZ3gk3Q6lAj6302a.jpg",
+      "popularity": 15.209428,
+      "heading": "Jupiter Ascending",
+      "video": false,
+      "vote_average": 5.4,
+      "vote_count": 682
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fii9tPZTpy75qOCJBulWOb0ifGp.jpg",
+      "genre_ids": [
+        18,
+        36,
+        53,
+        10752
+      ],
+      "id": 205596,
+      "original_language": "en",
+      "original_title": "The Imitation Game",
+      "excerpt": "Based on the real life story of legendary cryptanalyst Alan Turing, the film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain's top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.",
+      "release_date": "2014-11-14",
+      "poster_path": "/noUp0XOqIcmgefRnRZa1nhtRvWO.jpg",
+      "popularity": 14.06502,
+      "heading": "The Imitation Game",
+      "video": false,
+      "vote_average": 8.1,
+      "vote_count": 1222
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg",
+      "genre_ids": [
+        12,
+        878,
+        28
+      ],
+      "id": 99861,
+      "original_language": "en",
+      "original_title": "Avengers: Age of Ultron",
+      "excerpt": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+      "release_date": "2015-05-01",
+      "poster_path": "/t90Y3G8UGQp0f0DrP60wRu9gfrH.jpg",
+      "popularity": 14.81874,
+      "heading": "Avengers: Age of Ultron",
+      "video": false,
+      "vote_average": 7.8,
+      "vote_count": 1259
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg",
+      "genre_ids": [
+        878,
+        14,
+        12
+      ],
+      "id": 118340,
+      "original_language": "en",
+      "original_title": "Guardians of the Galaxy",
+      "excerpt": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+      "release_date": "2014-08-01",
+      "poster_path": "/9gm3lL8JMTTmc3W4BmNMCuRLdL8.jpg",
+      "popularity": 14.51119,
+      "heading": "Guardians of the Galaxy",
+      "video": false,
+      "vote_average": 8.2,
+      "vote_count": 2706
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kJre98tnbNXbk5L5altHkQWGwD3.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        9648
+      ],
+      "id": 158852,
+      "original_language": "en",
+      "original_title": "Tomorrowland",
+      "excerpt": "Bound by a shared destiny, a bright, optimistic teen bursting with scientific curiosity and a former boy-genius inventor jaded by disillusionment embark on a danger-filled mission to unearth the secrets of an enigmatic place somewhere in time and space that exists in their collective memory as \"Tomorrowland.\"",
+      "release_date": "2015-05-22",
+      "poster_path": "/69Cz9VNQZy39fUE2g0Ggth6SBTM.jpg",
+      "popularity": 14.07089,
+      "heading": "Tomorrowland",
+      "video": false,
+      "vote_average": 6.6,
+      "vote_count": 239
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6zJCJtcxmMUU7pjL4Ss1xkeGiyX.jpg",
+      "genre_ids": [
+        28,
+        80,
+        18,
+        9648,
+        53
+      ],
+      "id": 241554,
+      "original_language": "en",
+      "original_title": "Run All Night",
+      "excerpt": "Brooklyn mobster and prolific hit man Jimmy Conlon, once known as The Gravedigger, has seen better days. Longtime best friend of mob boss. Jimmy, now 55, is haunted by the sins of his past—as well as a dogged police detective who’s been one step behind Jimmy for 30 years. But when Jimmy’s estranged son, becomes a target, Jimmy must make a choice between the crime family he chose and the real family he abandoned long ago. Now, with nowhere safe to turn, Jimmy just has one night to figure out exactly where his loyalties lie and to see if he can finally make things right.",
+      "release_date": "2015-03-13",
+      "poster_path": "/aqNJrAxudMRNo8jg3HOUQqdl2xr.jpg",
+      "popularity": 13.651485,
+      "heading": "Run All Night",
+      "video": false,
+      "vote_average": 6.4,
+      "vote_count": 162
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fUn5I5f4069vwGFEEvA3HXt9xPP.jpg",
+      "genre_ids": [
+        878,
+        12,
+        53
+      ],
+      "id": 131631,
+      "original_language": "en",
+      "original_title": "The Hunger Games: Mockingjay - Part 1",
+      "excerpt": "Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.",
+      "release_date": "2014-11-20",
+      "poster_path": "/cWERd8rgbw7bCMZlwP207HUXxym.jpg",
+      "popularity": 12.730425,
+      "heading": "The Hunger Games: Mockingjay - Part 1",
+      "video": false,
+      "vote_average": 7,
+      "vote_count": 1379
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/anItUS64TeGKPv6MJ99DMv7o0Z0.jpg",
+      "genre_ids": [
+        35,
+        10402
+      ],
+      "id": 254470,
+      "original_language": "en",
+      "original_title": "Pitch Perfect 2",
+      "excerpt": "The Bellas are back, and they are better than ever. After being humiliated in front of none other than the President of the United States of America, the Bellas are taken out of the Aca-Circuit. In order to clear their name, and regain their status, the Bellas take on a seemingly impossible task: winning an international competition no American team has ever won. In order to accomplish this monumental task, they need to strengthen the bonds of friendship and sisterhood and blow away the competition with their amazing aca-magic! With all new friends and old rivals tagging along for the trip, the Bellas can hopefully accomplish their dreams.",
+      "release_date": "2015-05-15",
+      "poster_path": "/qSjruLiFB4uqRtz2xheQPxG8uaB.jpg",
+      "popularity": 12.179013,
+      "heading": "Pitch Perfect 2",
+      "video": false,
+      "vote_average": 7.3,
+      "vote_count": 189
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8dHsvdiZLBdppKwRiZ0XZYngbeN.jpg",
+      "genre_ids": [
+        35
+      ],
+      "id": 257091,
+      "original_language": "en",
+      "original_title": "Get Hard",
+      "excerpt": "When obscenely rich hedge-fund manager James is convicted of fraud and sentenced to a stretch in San Quentin, the judge gives him one month to get his affairs in order. Knowing that he won't survive more than a few minutes in prison on his own, James desperately turns to Darnell-- a black businessman who's never even had a parking ticket -- for help. As Darnell puts James through the wringer, both learn that they were wrong about many things, including each other.",
+      "release_date": "2015-03-27",
+      "poster_path": "/qRzUSrN4p6B7fzA5XGm4ebFg3co.jpg",
+      "popularity": 11.9924,
+      "heading": "Get Hard",
+      "video": false,
+      "vote_average": 6,
+      "vote_count": 122
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/razvUuLkF7CX4XsLyj02ksC0ayy.jpg",
+      "genre_ids": [
+        80,
+        28,
+        53
+      ],
+      "id": 260346,
+      "original_language": "en",
+      "original_title": "Taken 3",
+      "excerpt": "Ex-government operative Bryan Mills finds his life is shattered when he's falsely accused of a murder that hits close to home. As he's pursued by a savvy police inspector, Mills employs his particular set of skills to track the real killer and exact his unique brand of justice.",
+      "release_date": "2015-01-09",
+      "poster_path": "/c2SSjUVYawDUnQ92bmTqsZsPEiB.jpg",
+      "popularity": 11.737899,
+      "heading": "Taken 3",
+      "video": false,
+      "vote_average": 6.2,
+      "vote_count": 698
+    }
+  ],
+  "total_pages": 11324,
+  "total_results": 226478
+}
+]</script>
+<script>[
+{
+  "page": 1,
+  "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/kiWvoV78Cc3fUwkOHKzyBgVdrDD.jpg",
+            "genre_ids": [18, 12],
+            "imdbID": 281957,
+            "Language": "en",
+            "original_title": "The Revenant",
+            "Plot": "In the 1820s, a frontiersman, Hugh Glass, sets out on a path of vengeance against those who left him for dead after a bear mauling.",
+            "Released": "2015-12-25",
+            "poster_path": "/oXUWEc5i3wYyFnL1Ycu8ppxxPvs.jpg",
+            "popularity": 2.295314,
+            "Title": "The Revenant",
+            "video": false,
+            "vote_average": 5,
+            "imdbVotes": 20
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/pgSkCrrPO5NWZcvHpXG2l8DxTou.jpg",
+            "genre_ids": [28, 12, 878, 14],
+            "imdbID": 140607,
+            "Language": "en",
+            "original_title": "Star Wars: Episode VII - The Force Awakens",
+            "Plot": "A continuation of the saga created by George Lucas, set thirty years after Star Wars: Episode VI – Return of the Jedi.",
+            "Released": "2015-12-18",
+            "poster_path": "/fYzpM9GmpBlIC893fNjoWCwE24H.jpg",
+            "popularity": 12.066421,
+            "Title": "Star Wars: Episode VII - The Force Awakens",
+            "video": false,
+            "vote_average": 7.8,
+            "imdbVotes": 115
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/qcWUzAumOrQyypDk0jcKlInhUgk.jpg",
+            "genre_ids": [28, 12, 18],
+            "imdbID": 205775,
+            "Language": "en",
+            "original_title": "In the Heart of the Sea",
+            "Plot": "In the winter of 1820, the New England whaling ship Essex was assaulted by something no one could believe: a whale of mammoth size and will, and an almost human sense of vengeance.  The real-life maritime disaster would inspire Herman Melville’s Moby-Dick.&nbsp; But that told only half the story.&nbsp; “Heart of the Sea” reveals the encounter’s harrowing aftermath, as the ship’s surviving crew is pushed to their limits and forced to do the unthinkable to stay alive.&nbsp; Braving storms, starvation, panic and despair, the men will call into question their deepest beliefs, from the value of their lives to the morality of their trade, as their captain searches for direction on the open sea and his first mate still seeks to bring the great whale down.",
+            "Released": "2015-12-03",
+            "poster_path": "/uekIGnzTACciWrfR7jOuof7xHgR.jpg",
+            "popularity": 3.656257,
+            "Title": "In the Heart of the Sea",
+            "video": false,
+            "vote_average": 3.2,
+            "imdbVotes": 27
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/sSvgNBeBNzAuKl8U8sP50ETJPgx.jpg",
+            "genre_ids": [37],
+            "imdbID": 273248,
+            "Language": "en",
+            "original_title": "The Hateful Eight",
+            "Plot": "Bounty hunters seek shelter from a raging blizzard and get caught up in a plot of betrayal and deception.",
+            "Released": "2015-12-25",
+            "poster_path": "/fqe8JxDNO8B8QfOGTdjh6sPCdSC.jpg",
+            "popularity": 1.066526,
+            "Title": "The Hateful Eight",
+            "video": false,
+            "vote_average": 6,
+            "imdbVotes": 23
+        },
+        {
+            "adult": false,
+            "backdrop_path": null,
+            "genre_ids": [18],
+            "imdbID": 362876,
+            "Language": "pt",
+            "original_title": "Califórnia",
+            "Plot": "The year is 1984. Estela is going through the turbulent phase of adolescence. Sex, lovers, friendships; everything seems very complicated. Her uncle Carlos is her hero, and visiting him in California is her biggest dream. But everything collapses when he returns thin, weak and ill. Between crises and discoveries, Estela will face a reality that will forever change her way of seeing the world.&#8203;",
+            "Released": "2015-12-03",
+            "poster_path": "/eH7WQorZt1ub0cGZd1ZCMPfl9rP.jpg",
+            "popularity": 2.15236,
+            "Title": "Califórnia",
+            "video": false,
+            "vote_average": 7.3,
+            "imdbVotes": 2
+        },
+    {
+      "adult": false,
+      "backdrop_path": "/dkMD5qlogeRMiEixC4YNPUvax2T.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        53
+      ],
+      "imdbID": 135397,
+      "Language": "en",
+      "original_title": "Jurassic World",
+      "Plot": "Twenty-two years after the events of Jurassic Park, Isla Nublar now features a fully functioning dinosaur theme park, Jurassic World, as originally envisioned by John Hammond.",
+      "Released": "2015-06-12",
+      "poster_path": "/uXZYawqUsChGSj54wcuBtEdUJbh.jpg",
+      "popularity": 88.551849,
+      "Title": "Jurassic World",
+      "video": false,
+      "vote_average": 7.1,
+      "imdbVotes": 435
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/jxPeRkfOoWs6gFybOa8C4xrHLrm.jpg",
+      "genre_ids": [
+        53,
+        28,
+        12
+      ],
+      "imdbID": 76341,
+      "Language": "en",
+      "original_title": "Mad Max: Fury Road",
+      "Plot": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and most everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order. There's Max, a man of action and a man of few words, who seeks peace of mind following the loss of his wife and child in the aftermath of the chaos. And Furiosa, a woman of action and a woman who believes her path to survival may be achieved if she can make it across the desert back to her childhood homeland.",
+      "Released": "2015-05-15",
+      "poster_path": "/kqjL17yufvn9OVLyXYpvtyrFfak.jpg",
+      "popularity": 35.88189,
+      "Title": "Mad Max: Fury Road",
+      "video": false,
+      "vote_average": 7.9,
+      "imdbVotes": 815
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/cUfGqafAVQkatQ7N4y08RNV3bgu.jpg",
+      "genre_ids": [
+        28,
+        18,
+        53
+      ],
+      "imdbID": 254128,
+      "Language": "en",
+      "original_title": "San Andreas",
+      "Plot": "In the aftermath of a massive earthquake in California, a rescue-chopper pilot makes a dangerous journey across the state in order to rescue his estranged daughter.",
+      "Released": "2015-05-29",
+      "poster_path": "/6iQ4CMtYorKFfAmXEpAQZMnA0Qe.jpg",
+      "popularity": 25.002,
+      "Title": "San Andreas",
+      "video": false,
+      "vote_average": 6.2,
+      "imdbVotes": 234
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/2BXd0t9JdVqCp9sKf6kzMkr7QjB.jpg",
+      "genre_ids": [
+        12,
+        10751,
+        16,
+        28,
+        35
+      ],
+      "imdbID": 177572,
+      "Language": "en",
+      "original_title": "Big Hero 6",
+      "Plot": "The special bond that develops between plus-sized inflatable robot Baymax, and prodigy Hiro Hamada, who team up with a group of friends to form a band of high-tech heroes.",
+      "Released": "2014-11-07",
+      "poster_path": "/3zQvuSAUdC3mrx9vnSEpkFX0968.jpg",
+      "popularity": 19.674015,
+      "Title": "Big Hero 6",
+      "video": false,
+      "vote_average": 7.9,
+      "imdbVotes": 1471
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xjjO3JIdneMBTsS282JffiPqfHW.jpg",
+      "genre_ids": [
+        10749,
+        14,
+        10751,
+        18
+      ],
+      "imdbID": 150689,
+      "Language": "en",
+      "original_title": "Cinderella",
+      "Plot": "When her father unexpectedly passes away, young Ella finds herself at the mercy of her cruel stepmother and her daughters. Never one to give up hope, Ella's fortunes begin to change after meeting a dashing stranger in the woods.",
+      "Released": "2015-03-13",
+      "poster_path": "/2i0JH5WqYFqki7WDhUW56Sg0obh.jpg",
+      "popularity": 18.919939,
+      "Title": "Cinderella",
+      "video": false,
+      "vote_average": 7.2,
+      "imdbVotes": 276
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/7LMp3YY6WrJEExwKEyVaQnRlC76.jpg",
+      "genre_ids": [
+        80,
+        35,
+        28,
+        12
+      ],
+      "imdbID": 207703,
+      "Language": "en",
+      "original_title": "Kingsman: The Secret Service",
+      "Plot": "Kingsman: The Secret Service tells the story of a super-secret spy organization that recruits an unrefined but promising street kid into the agency's ultra-competitive training program just as a global threat emerges from a twisted tech genius.",
+      "Released": "2015-02-13",
+      "poster_path": "/oAISjx6DvR2yUn9dxj00vP8OcJJ.jpg",
+      "popularity": 17.71923,
+      "Title": "Kingsman: The Secret Service",
+      "video": false,
+      "vote_average": 7.7,
+      "imdbVotes": 1044
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/y5lG7TBpeOMG0jxAaTK0ghZSzBJ.jpg",
+      "genre_ids": [
+        28,
+        878,
+        53
+      ],
+      "imdbID": 198184,
+      "Language": "en",
+      "original_title": "Chappie",
+      "Plot": "Every child comes into the world full of promise, and none more so than Chappie: he is gifted, special, a prodigy. Like any child, Chappie will come under the influence of his surroundings—some good, some bad—and he will rely on his heart and soul to find his way in the world and become his own man. But there's one thing that makes Chappie different from any one else: he is a robot.",
+      "Released": "2015-03-06",
+      "poster_path": "/saF3HtAduvrP9ytXDxSnQJP3oqx.jpg",
+      "popularity": 17.66911,
+      "Title": "Chappie",
+      "video": false,
+      "vote_average": 6.7,
+      "imdbVotes": 492
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/xu9zaAevzQ5nnrsXN6JcahLnG4i.jpg",
+      "genre_ids": [
+        18,
+        878
+      ],
+      "imdbID": 157336,
+      "Language": "en",
+      "original_title": "Interstellar",
+      "Plot": "Interstellar chronicles the adventures of a group of explorers who make use of a newly discovered wormhole to surpass the limitations on human space travel and conquer the vast distances involved in an interstellar voyage.",
+      "Released": "2014-11-05",
+      "poster_path": "/nBNZadXqJSdt05SHLqgT0HuC5Gm.jpg",
+      "popularity": 16.688744,
+      "Title": "Interstellar",
+      "video": false,
+      "vote_average": 8.4,
+      "imdbVotes": 2485
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/qhH3GyIfAnGv1pjdV3mw03qAilg.jpg",
+      "genre_ids": [
+        12,
+        14
+      ],
+      "imdbID": 122917,
+      "Language": "en",
+      "original_title": "The Hobbit: The Battle of the Five Armies",
+      "Plot": "Mere seconds after the events of \"Desolation\", Bilbo and Company continue to claim a mountain of treasure that was guarded long ago: But with Gandalf the Grey also facing some formidable foes of his own, the Hobbit is outmatched when the brutal army of orcs led by Azog the Defiler returns. But with other armies such as the elves and the men of Lake-Town, which are unsure to be trusted, are put to the ultimate test when Smaug's wrath, Azog's sheer strength, and Sauron's force of complete ends attack. All in all, the trusted armies have two choices: unite or die. But even worse, Bilbo gets put on a knife edge and finds himself fighting with Hobbit warfare with all of his might for his dwarf-friends, as the hope for Middle-Earth is all put in Bilbo's hands. The one \"precious\" thing to end it all.",
+      "Released": "2014-12-17",
+      "poster_path": "/qrFwjJ5nvFnpBCmXLI4YoeHJNBH.jpg",
+      "popularity": 16.434565,
+      "Title": "The Hobbit: The Battle of the Five Armies",
+      "video": false,
+      "vote_average": 7.2,
+      "imdbVotes": 1470
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bIlYH4l2AyYvEysmS2AOfjO7Dn8.jpg",
+      "genre_ids": [
+        878,
+        28,
+        53,
+        12
+      ],
+      "imdbID": 87101,
+      "Language": "en",
+      "original_title": "Terminator Genisys",
+      "Plot": "The year is 2029. John Connor, leader of the resistance continues the war against the machines. At the Los Angeles offensive, John's fears of the unknown future begin to emerge when TECOM spies reveal a new plot by SkyNet that will attack him from both fronts; past and future, and will ultimately change warfare forever.",
+      "Released": "2015-07-01",
+      "poster_path": "/qOoFD4HD9a2EEUymdzBQN9XF1UJ.jpg",
+      "popularity": 15.394013,
+      "Title": "Terminator Genisys",
+      "video": false,
+      "vote_average": 7.3,
+      "imdbVotes": 35
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/4liSXBZZdURI0c1Id1zLJo6Z3Gu.jpg",
+      "genre_ids": [
+        878,
+        14,
+        28,
+        12
+      ],
+      "imdbID": 76757,
+      "Language": "en",
+      "original_title": "Jupiter Ascending",
+      "Plot": "In a universe where human genetic material is the most precious commodity, an impoverished young Earth woman becomes the key to strategic maneuvers and internal strife within a powerful dynasty…",
+      "Released": "2015-02-27",
+      "poster_path": "/aMEsvTUklw0uZ3gk3Q6lAj6302a.jpg",
+      "popularity": 15.209428,
+      "Title": "Jupiter Ascending",
+      "video": false,
+      "vote_average": 5.4,
+      "imdbVotes": 682
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fii9tPZTpy75qOCJBulWOb0ifGp.jpg",
+      "genre_ids": [
+        18,
+        36,
+        53,
+        10752
+      ],
+      "imdbID": 205596,
+      "Language": "en",
+      "original_title": "The Imitation Game",
+      "Plot": "Based on the real life story of legendary cryptanalyst Alan Turing, the film portrays the nail-biting race against time by Turing and his brilliant team of code-breakers at Britain's top-secret Government Code and Cypher School at Bletchley Park, during the darkest days of World War II.",
+      "Released": "2014-11-14",
+      "poster_path": "/noUp0XOqIcmgefRnRZa1nhtRvWO.jpg",
+      "popularity": 14.06502,
+      "Title": "The Imitation Game",
+      "video": false,
+      "vote_average": 8.1,
+      "imdbVotes": 1222
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/rFtsE7Lhlc2jRWF7SRAU0fvrveQ.jpg",
+      "genre_ids": [
+        12,
+        878,
+        28
+      ],
+      "imdbID": 99861,
+      "Language": "en",
+      "original_title": "Avengers: Age of Ultron",
+      "Plot": "When Tony Stark tries to jumpstart a dormant peacekeeping program, things go awry and Earth’s Mightiest Heroes are put to the ultimate test as the fate of the planet hangs in the balance. As the villainous Ultron emerges, it is up to The Avengers to stop him from enacting his terrible plans, and soon uneasy alliances and unexpected action pave the way for an epic and unique global adventure.",
+      "Released": "2015-05-01",
+      "poster_path": "/t90Y3G8UGQp0f0DrP60wRu9gfrH.jpg",
+      "popularity": 14.81874,
+      "Title": "Avengers: Age of Ultron",
+      "video": false,
+      "vote_average": 7.8,
+      "imdbVotes": 1259
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg",
+      "genre_ids": [
+        878,
+        14,
+        12
+      ],
+      "imdbID": 118340,
+      "Language": "en",
+      "original_title": "Guardians of the Galaxy",
+      "Plot": "Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.",
+      "Released": "2014-08-01",
+      "poster_path": "/9gm3lL8JMTTmc3W4BmNMCuRLdL8.jpg",
+      "popularity": 14.51119,
+      "Title": "Guardians of the Galaxy",
+      "video": false,
+      "vote_average": 8.2,
+      "imdbVotes": 2706
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/kJre98tnbNXbk5L5altHkQWGwD3.jpg",
+      "genre_ids": [
+        28,
+        12,
+        878,
+        9648
+      ],
+      "imdbID": 158852,
+      "Language": "en",
+      "original_title": "Tomorrowland",
+      "Plot": "Bound by a shared destiny, a bright, optimistic teen bursting with scientific curiosity and a former boy-genius inventor jaded by disillusionment embark on a danger-filled mission to unearth the secrets of an enigmatic place somewhere in time and space that exists in their collective memory as \"Tomorrowland.\"",
+      "Released": "2015-05-22",
+      "poster_path": "/69Cz9VNQZy39fUE2g0Ggth6SBTM.jpg",
+      "popularity": 14.07089,
+      "Title": "Tomorrowland",
+      "video": false,
+      "vote_average": 6.6,
+      "imdbVotes": 239
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/6zJCJtcxmMUU7pjL4Ss1xkeGiyX.jpg",
+      "genre_ids": [
+        28,
+        80,
+        18,
+        9648,
+        53
+      ],
+      "imdbID": 241554,
+      "Language": "en",
+      "original_title": "Run All Night",
+      "Plot": "Brooklyn mobster and prolific hit man Jimmy Conlon, once known as The Gravedigger, has seen better days. Longtime best friend of mob boss. Jimmy, now 55, is haunted by the sins of his past—as well as a dogged police detective who’s been one step behind Jimmy for 30 years. But when Jimmy’s estranged son, becomes a target, Jimmy must make a choice between the crime family he chose and the real family he abandoned long ago. Now, with nowhere safe to turn, Jimmy just has one night to figure out exactly where his loyalties lie and to see if he can finally make things right.",
+      "Released": "2015-03-13",
+      "poster_path": "/aqNJrAxudMRNo8jg3HOUQqdl2xr.jpg",
+      "popularity": 13.651485,
+      "Title": "Run All Night",
+      "video": false,
+      "vote_average": 6.4,
+      "imdbVotes": 162
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/fUn5I5f4069vwGFEEvA3HXt9xPP.jpg",
+      "genre_ids": [
+        878,
+        12,
+        53
+      ],
+      "imdbID": 131631,
+      "Language": "en",
+      "original_title": "The Hunger Games: Mockingjay - Part 1",
+      "Plot": "Katniss Everdeen reluctantly becomes the symbol of a mass rebellion against the autocratic Capitol.",
+      "Released": "2014-11-20",
+      "poster_path": "/cWERd8rgbw7bCMZlwP207HUXxym.jpg",
+      "popularity": 12.730425,
+      "Title": "The Hunger Games: Mockingjay - Part 1",
+      "video": false,
+      "vote_average": 7,
+      "imdbVotes": 1379
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/8dHsvdiZLBdppKwRiZ0XZYngbeN.jpg",
+      "genre_ids": [
+        35
+      ],
+      "imdbID": 257091,
+      "Language": "en",
+      "original_title": "Get Hard",
+      "Plot": "When obscenely rich hedge-fund manager James is convicted of fraud and sentenced to a stretch in San Quentin, the judge gives him one month to get his affairs in order. Knowing that he won't survive more than a few minutes in prison on his own, James desperately turns to Darnell-- a black businessman who's never even had a parking ticket -- for help. As Darnell puts James through the wringer, both learn that they were wrong about many things, including each other.",
+      "Released": "2015-03-27",
+      "poster_path": "/qRzUSrN4p6B7fzA5XGm4ebFg3co.jpg",
+      "popularity": 11.9924,
+      "Title": "Get Hard",
+      "video": false,
+      "vote_average": 6,
+      "imdbVotes": 122
+    },
+    {
+      "adult": false,
+      "backdrop_path": "/razvUuLkF7CX4XsLyj02ksC0ayy.jpg",
+      "genre_ids": [
+        80,
+        28,
+        53
+      ],
+      "imdbID": 260346,
+      "Language": "en",
+      "original_title": "Taken 3",
+      "Plot": "Ex-government operative Bryan Mills finds his life is shattered when he's falsely accused of a murder that hits close to home. As he's pursued by a savvy police inspector, Mills employs his particular set of skills to track the real killer and exact his unique brand of justice.",
+      "Released": "2015-01-09",
+      "poster_path": "/c2SSjUVYawDUnQ92bmTqsZsPEiB.jpg",
+      "popularity": 11.737899,
+      "Title": "Taken 3",
+      "video": false,
+      "vote_average": 6.2,
+      "imdbVotes": 698
+    }
+  ],
+  "total_pages": 11324,
+  "total_results": 226478
+}
+]</script>
+<script>console.clear();
+
+// Plain old javascript object
+var App = {
+	Models: {}, 
+	Views: {}, 
+	Collections: {}, 
+	utils: {},
+	
+	currentView: null,
+
+    _firstLoad: true,
+	
+	appEl: $('.js-app'),
+	
+	start: function() {
+		_.extend(this, Backbone.Events);
+				
+		// Set up some listeners
+		this.listenTo(Backbone.Events, 'show:movies', this.onShowMovies);
+        this.listenTo(Backbone.Events, 'show:movie', this.onShowMovie, this);
+        this.listenTo(Backbone.Events, 'show:watchlist', this.onShowWatchlist);
+
+        this.listenTo(Backbone.Events, 'add:watchlist', this.onWatchlistAdd, this);
+        this.listenTo(Backbone.Events, 'remove:watchlist', this.onWatchlistRemove, this);
+		
+		// Start History API.
+		Backbone.history.start();
+	},
+	
+	onShowMovies: function() {
+		
+        var movieCollectionView = new App.Views.MovieCollectionView({
+            collection: dataStore.movies
+        });
+
+        this._changeView(movieCollectionView);
+
+        if(dataStore.movies.length <= 0) {
+            dataStore.movies.fetch();
+        }
+    },
+
+    onShowMovie: function(id) {
+		
+        var deferred = $.Deferred(),
+            self = this;
+
+        if(dataStore.movies.length > 0) {
+            deferred.resolve();
+        } else {
+            dataStore.movies.fetch().done(function() {
+                deferred.resolve();
+            });
+        }
+
+        deferred.done(function() {
+
+            var movieModel = dataStore.movies.get(id);
+
+            var detailedMovieView = new App.Views.DetailedMovieView({
+                model: movieModel
+            });
+
+            this._changeView(detailedMovieView);
+        }.bind(this));
+    },
+
+    onShowWatchlist: function() {
+
+        if(this._firstLoad && dataStore.watchlist.length <= 0) {
+            dataStore.watchlist.fetch().done(function(response) {
+                console.log(response);
+
+                var watchlistCollectionView = new App.Views.WatchlistCollectionView({
+                    collection: dataStore.watchlist
+                });
+
+                this._changeView(watchlistCollectionView);
+                this._firstLoad = false;
+            }.bind(this));
+        } else {
+            var watchlistCollectionView = new App.Views.WatchlistCollectionView({
+                collection: dataStore.watchlist
+            });
+
+            this._changeView(watchlistCollectionView);
+        }
+    },
+
+    _changeView: function(view) {
+
+        if (this.currentView) {
+            this.currentView.dispose();
+            this.currentView = null;
+        }
+
+        this.currentView = view;
+        this.appEl.html(this.currentView.render().el);
+    },
+
+    onWatchlistAdd: function(model) {
+		
+        model.set('watchlist', true);
+
+        var clonedFilm = model.clone();
+
+        dataStore.watchlist.add(clonedFilm);
+
+        clonedFilm.save(null, {
+            success: function(model, response, options) {
+                console.log('Success::', model, response, options);
+            },
+            error: function(model, response, options) {
+                console.log('Error::', model, response, options);
+            }
+        });
+    },
+
+    onWatchlistRemove: function(model) {
+		
+        model.set('watchlist', false);
+
+        //@todo need to add a url to model
+        var clonedFilm = model.clone();
+
+        dataStore.watchlist.remove(model);
+
+        clonedFilm.destroy(null, {
+            success: function(model, response, options) {
+                console.log('Success::', model, response, options);
+            },
+            error: function(model, response, options) {
+                console.log('Error::', model, response, options);
+            }
+        });
+    }
+};
+
+// Model Classes
+App.Models.MovieModel = Backbone.Model.extend({
+	
+	localStorage: new Store('watchlist'),
+
+    defaults: {
+        watchlist: false
+    },
+	
+	toggleWatchlist: function() {
+        this.set( 'watchlist', !this.get('watchlist') );
+    },
+
+    parse: function(response) {
+        if(response.backdrop_path) {
+            response.backdrop_small = 'http://image.tmdb.org/t/p/w500/'+response.backdrop_path;
+            response.backdrop_large = 'http://image.tmdb.org/t/p/w1280/'+response.backdrop_path;
+        } else {
+            response.backdrop_small = 'https://placeimg.com/500/281/any/grayscale/1';
+            response.backdrop_large = 'https://placeimg.com/1280/720/grayscale/1';
+        }
+		
+		//delete response.backdrop_path;
+
+        return response;
+    }
+});
+
+// Collection Classes
+App.Collections.MovieCollection = Backbone.Collection.extend({
+	
+	model: App.Models.MovieModel,
+	
+	url: 'https://codepen.io/styler/pen/yYmWWY.js',
+	// Original https://codepen.io/styler/pen/yYmWWY.js
+	// IMDB Swap out https://codepen.io/styler/pen/yeNLZy.js
+		// >>> Changed overview -> Plot, title -> Title, id -> imdbID
+	// Missing attributes https://codepen.io/styler/pen/PZYjOr.js
+	// Updated attribute names https://codepen.io/styler/pen/Rrbgxv.js
+			
+	parse: function(response) {
+        return response[0].results;
+    }
+
+});
+
+App.Collections.WatchlistCollection = Backbone.Collection.extend({
+	
+	model: App.Models.MovieModel,
+	
+	localStorage: new Store('watchlist'),
+	
+	initialize: function() {
+		this.listenTo(this, 'remove', this.hideModel);
+	},
+	
+	hideModel: function(model) {
+		model.trigger('hide:model');
+	}
+});
+
+// View Classes
+App.Views.MainHeaderView = Backbone.View.extend({
+	
+	events: {
+        'click .js-nav-link': 'onNavItemClicked'
+    },
+
+    initialize: function() {
+        console.log('MainHeaderView::initialize', this.$el);
+
+        Backbone.Events.on('route:change', this.onDeeplink, this);
+    },
+
+    onNavItemClicked: function(event) {
+        event.preventDefault();
+
+        var $clickedEl = $(event.currentTarget),
+            clickedHref = $clickedEl.attr('href');
+
+        this.toggleActiveNavClass($clickedEl);
+
+        App.utils.router.navigate(clickedHref, {
+            trigger: true
+        });
+    },
+
+    onDeeplink: function(route) {
+        console.log('onDeeplink', route);
+
+        var $element = $('.js-nav-link[href="/'+route+'"]');
+
+        this.toggleActiveNavClass($element);
+    },
+
+    toggleActiveNavClass: function(element) {
+
+        $('.js-nav-link').removeClass('is-active');
+
+        element.addClass('is-active');
+    }
+});
+
+App.Views.MovieCollectionView = Backbone.View.extend({
+	className: 'movie-grid',
+
+    events: {
+        'click .js-movie--show': 'onMovieClick'
+    },
+
+	template: _.template( $('.tmpl-movies').html() ),
+
+    initialize: function() {
+        console.log('MovieCollectionView::initialize');
+
+        this.collection.on('sync', this.render, this);
+    },
+
+    render: function() {
+        console.log('MovieCollectionView::render');
+
+        this.$el.html(this.template({
+            movies: this.collection.toJSON()
+        }));
+
+        setTimeout(function() {
+            this.afterRender();
+        }.bind(this), 0);
+
+        return this;
+    },
+
+    afterRender: function() {
+        console.log('MovieCollectionView::afterRender');
+
+        var $images = imagesLoaded( this.$el.find('.js-trans-img') );
+
+        $images.on('progress', function(instance, image) {
+            $(image.img).removeClass('is-hidden');
+        });
+    },
+
+    onMovieClick: function(event) {
+        event.preventDefault();
+
+        var $clickedEl = $(event.currentTarget),
+            clickedHref = $clickedEl.attr('href'),
+            movieId = $clickedEl.data('id');
+
+        Backbone.Events.trigger('show:movie', movieId);
+
+        App.utils.router.navigate(clickedHref, {trigger: false});
+    },
+
+    dispose: function() {
+        this.remove();
+
+        console.info('MovieCollectionView::dispose', this);
+    }
+});
+
+App.Views.DetailedMovieView = Backbone.View.extend({
+	
+	className: 'movie-detailed',
+
+    events: {
+        'click .js-action--back': 'onBackBtnClick',
+        'click .js-watchlist--add': 'onAddClick',
+        'click .js-watchlist--remove': 'onRemoveClick'
+    },
+
+    template: _.template( $('.tmpl-movie-detailed').html() ),
+
+    initialize: function() {
+        console.log('DetailedMovieView::initialize');
+    },
+
+    render: function() {
+        
+        this.$el.html( this.template( this.model.toJSON() ) );
+
+        setTimeout(function() {
+            this.afterRender();
+        }.bind(this), 0);
+
+        return this;
+    },
+
+    afterRender: function() {
+		
+		var loader = new App.Views.LoaderView();
+		
+		this.$('.js-img-placeholder').append(loader.render().el);
+		
+		loader.show();
+
+        imagesLoaded(this.$('.js-trans-img'), function() {
+            this.images.forEach(function(i) {
+                var $image = $(i.img);
+                $image.removeClass('is-hidden');
+				
+				loader.hide();
+            });
+        });
+
+        this.createWatchlistBtn();
+    },
+
+    createWatchlistBtn: function() {
+
+        var watchlistBtn = new App.Views.WatchlistBtnSubview({
+            model: this.model
+        });
+
+        this.$('.js-watchlist--add').replaceWith( watchlistBtn.render().el );
+    },
+
+    onBackBtnClick: function(event) {
+        event.preventDefault();
+
+        window.history.back();
+    },
+
+    onAddClick: function(event) {
+        event.preventDefault();
+
+        Backbone.Events.trigger('add:watchlist', this.model);
+    },
+
+    onRemoveClick: function(event) {
+        event.preventDefault();
+
+        Backbone.Events.trigger('remove:watchlist', this.model);
+    },
+
+    dispose: function() {
+        this.remove();
+
+        console.info('DetailedMovieView::dispose', this);
+    }
+});
+
+App.Views.WatchlistCollectionView = Backbone.View.extend({
+	
+	className: 'movie-grid',
+
+    events: {
+        'click .js-movie--show': 'onMovieClick'
+    },
+
+	template: _.template( $('.tmpl-watchlist').html() ),
+
+    initialize: function() {
+        console.log('MovieListItemView::initialize', this.collection.toJSON());
+
+        this.listenTo(this.collection, 'add', this.onAddMovie, this);
+        this.listenTo(this.collection, 'remove', this.onMovieRemoved, this);
+    },
+
+    render: function() {
+        console.log('MovieListItemView::render', this.collection.toJSON());
+
+        this.$el.html(this.template());
+
+        if(this.collection.length > 0) {
+            this.collection.forEach(this.onAddMovie, this);
+        }
+
+        setTimeout(function() {
+            this.afterRender();
+        }.bind(this), 0);
+
+        return this;
+    },
+
+    afterRender: function() {
+        console.log('WatchlistCollectionView::afterRender');
+
+        var $images = imagesLoaded( this.$el.find('.js-trans-img') );
+
+        $images.on('progress', function(instance, image) {
+            $(image.img).removeClass('is-hidden');
+        });
+    },
+
+    onAddMovie: function(movie) {
+        console.log('ADD MOVIE');
+
+        var watchlistMovie = new App.Views.WatchlistItemView({
+            model: movie
+        });
+
+        this.$el.prepend(watchlistMovie.render().el);
+    },
+
+    onMovieClick: function(event) {
+        event.preventDefault();
+
+        var $clickedEl = $(event.currentTarget),
+            clickedHref = $clickedEl.attr('href'),
+            movieId = $clickedEl.data('id');
+
+        Backbone.Events.trigger('show:movie', movieId);
+
+        App.utils.router.navigate(clickedHref, {trigger: false});
+    },
+
+    onMovieRemoved: function(model) {
+        console.log('REMOVE MOVIE', model.toJSON());
+
+        // this.collection.remove(model);
+        console.log(this.collection.toJSON());
+
+        if(this.collection.length === 0) {
+            this.$el.html(this.template());
+        }
+    },
+
+    dispose: function() {
+        this.remove();
+
+        console.info('WatchlistCollectionView::dispose', this);
+    }
+});
+
+App.Views.WatchlistItemView = Backbone.View.extend({
+	className: 'movie',
+
+	template: _.template( $('.tmpl-watchlist-movie').html() ),
+
+    events: {
+        'click .js-watchlist--remove': 'onWatchlistRemove'
+    },
+	
+	initialize: function() {
+		
+		this.listenTo(this.model, 'hide:model', this.dispose, this);
+	},
+
+    render: function() {
+        this.$el.html( this.template( this.model.toJSON() ) );
+
+        return this;
+    },
+
+    onWatchlistRemove: function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var model = dataStore.movies.get(this.model.get('id'));
+
+        Backbone.Events.trigger('remove:watchlist', model);
+    },
+
+    dispose: function() {
+        this.remove();
+    }
+});
+
+App.Views.WatchlistBtnSubview = Backbone.View.extend({
+	
+	template: _.template( $('.tmpl-watchlist-movie-btn').html() ),
+
+    initialize: function() {
+        console.log('WatchlistBtnSubview::initialize', this.model.toJSON());
+
+        this.listenTo(this.model, 'change:watchlist', this.render, this);
+    },
+
+    render: function() {
+        console.log('WatchlistBtnSubview::render', this.model.toJSON());
+
+        this.$el.html( this.template( this.model.toJSON() ) );
+
+        return this;
+    }
+});
+
+App.Views.LoaderView = Backbone.View.extend({
+	
+	className: 'loading tt is-hidden',
+	
+	stateClass: 'is-hidden',
+	
+	template: _.template( $('.tmpl-loader').html() ),
+	
+	initialize: function() {
+		
+		this.listenTo(Backbone.Events, 'loader:show', this.show, this);
+		this.listenTo(Backbone.Events, 'loader:hide', this.hide, this);
+	},
+	
+	render: function() {
+		
+		this.$el.html( this.template() );
+		
+		return this;
+	},
+	
+	show: function() {
+		this.$el.removeClass(this.stateClass);
+	},
+	
+	hide: function() {
+			
+		this.$el.addClass(this.stateClass);
+		
+		this.$el.one('transitionend', function() {
+			this.dispose();
+		}.bind(this));
+	},
+	
+	dispose: function() {
+		this.remove();
+	}
+});
+
+// Utilities
+App.utils.router = new (Backbone.Router.extend({
+	routes: {
+        '': 'onShowMovies',
+        'movie/:id': 'onShowMovie',
+        'watchlist': 'onShowWatchlist'
+    },
+
+    initialize: function() {
+        console.log('Router Started');
+
+        this.on('all', this._signalRouteChange);
+    },
+
+    onShowMovies: function() {
+        console.log('router::onShowMovies', this);
+
+        Backbone.Events.trigger('show:movies');
+    },
+
+    /**
+     * [onShowMovie description]
+     * @param {[number]} id movie id
+     */
+    onShowMovie: function(id) {
+        console.log('router::onShowMovie', this);
+
+        Backbone.Events.trigger('show:movie', id);
+    },
+
+    onShowWatchlist: function() {
+        console.log('router::onShowWatchlist');
+
+        Backbone.Events.trigger('show:watchlist');
+    },
+
+    _signalRouteChange: function(route) {
+        if(route === 'route') return;
+
+        var fragment = Backbone.history.getFragment();
+
+        if(fragment.split('/')[0] === 'movie') {
+            fragment = '';
+        }
+
+        Backbone.Events.trigger('route:change', fragment);
+    }
+}));
+						
+// Create a data store
+var dataStore = {};
+dataStore.movies = new App.Collections.MovieCollection();
+dataStore.watchlist = new App.Collections.WatchlistCollection();
+
+(function() {
+	new App.Views.MainHeaderView({
+        el: '.js-header'
+    });
+	
+	App.start();
+})();
+//# sourceURL=pen.js
+</script>
+</body></html>
