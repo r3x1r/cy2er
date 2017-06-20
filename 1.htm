@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html class=""><head><meta charset="UTF-8"><meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="icon.png">
+
+
+<style class="cp-pen-styles">html{
+  background:#ccc;
+  overflow-y:hidden;
+}
+#mySVG{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+}
+
+#horror{
+  text-align:center;
+  margin:auto;
+}
+
+.hidden{
+  display:none;
+}
+
+.animated-pumpkin{
+  animation:spookyAnimation 3s infinite;
+}
+
+.animated-flash{
+  animation:flash .1s infinite;
+}
+
+.animated-bite{
+  animation:bite .3s infinite;
+}
+
+
+
+@keyframes bite{
+  from{transform:translateY(0px)}
+  to {transform:translateY(10px);}
+}
+
+@keyframes flash{
+  from{background:#444;}
+  to{background:#aaa;}
+}
+
+@keyframes spookyAnimation{
+  0% {transform:scale(1) rotate(0deg);}
+  50%{transform:scale(2) rotate(15deg);}
+  100%{transform:scale(1) rotate(0deg);}
+}</style></head><body>
+<svg id="mySVG" viewBox="0 0 1000 1000" width="300" height="300" class="animated-pumpkin">
+  <!--walls-->
+  <path id="walls" stroke="#000" stroke-width="4" fill="orange" d="m 965.71429,565.84922 c 0,103.81331 -68.31109,206.23183 -149.21964,279.63893 C 735.5861,918.89524 691.54844,946.76884 520.00002,942.99206 351.30902,939.2782 278.69965,904.60953 214.93396,828.34529 144.85856,744.53459 80.000031,623.94824 80.000031,520.13493 c 0,-103.81331 45.453949,-174.80326 126.362499,-228.21036 91.17429,-60.18342 190.64409,-34.64677 305.06606,-34.64677 114.42197,0 224.15751,-38.76032 305.06606,34.64677 80.90855,73.4071 149.21964,170.11134 149.21964,273.92465 z" style="stroke-dasharray: 2553.21, 2553.21; stroke-dashoffset: -9.6137;"></path>
+  <!--Stem-->
+  <path id="stem" stroke="#000" stroke-width="4" fill="green" d="m 482.54834,110.631191 c 4.04061,71.720829 -21.2132,142.431509 -21.2132,142.431509 l 48.48732,3.20305 c 0,0 58.58885,-101.01526 -27.27412,-162.634559 z" style="stroke-dasharray: 392.069, 392.069; stroke-dashoffset: -1.37734;"></path>
+  
+  <!--Left Eye-->
+   <path id="left-eye" stroke="#000" stroke-width="7" fill="yellow" d="m 269.98663,315.82854 c 113.27947,125.07942 145.13932,102.65952 158.11927,116.81945 12.97993,14.15993 38.93981,30.67986 23.59988,61.35972 -15.33993,30.67985 -68.43968,53.09975 -89.67958,48.37977 C 340.7863,537.6675 258.18669,416.12807 269.98663,315.82854 Z" style="stroke-dasharray: 631.506, 631.506; stroke-dashoffset: -12.7653;"></path>
+  
+  <!--Right Eye-->
+  <path id="right-eye" stroke="#000" stroke-width="7" fill="yellow" d="M 765.79657,312.89593 C 652.5171,437.97534 620.65725,415.55544 607.67731,429.71537 c -12.97993,14.15993 -38.93981,30.67986 -23.59989,61.35972 15.33993,30.67985 68.43968,53.09975 89.67958,48.37977 21.2399,-4.71998 103.83952,-126.25941 92.03957,-226.55893 z" style="stroke-dasharray: 631.506, 631.506; stroke-dashoffset: -12.8;"></path>
+  <!--Mouth-->
+  <path id="mouth" stroke="#000" stroke-width="7" fill="yellow" d="m 264.58982,608.87803 c 21.69393,46.7254 86.77573,98.45709 86.77573,98.45709 l 8.34382,-58.40675 21.69394,46.7254 36.71281,-45.05663 40.05034,46.7254 63.41304,-53.40046 56.73798,45.05663 56.73798,-40.05034 43.38787,46.7254 88.4445,-91.78202 -81.76945,205.25799 -38.38157,-51.73169 -58.40675,43.38786 -48.39416,-58.40674 -38.38157,46.72539 -66.75057,-48.39416 -30.03775,43.38787 -50.06293,-46.7254 -36.71281,51.73169 z" style="stroke-dasharray: 1727.91, 1727.91; stroke-dashoffset: -6.12112;" class="animated-bite"></path>
+
+</svg>
+<script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
+<script>function draw(name,time,callback){
+  var path = document.querySelector('#'+name);
+  var length = path.getTotalLength();
+  
+  var start = null;
+  function step(timestamp) {
+    if (!start) start = timestamp;
+    var progress = timestamp - start;
+    path.style.strokeDashoffset = length - (length / time)*progress;
+    if (progress < time) {
+     requestAnimationFrame(step);
+    }
+    else{
+      if (callback) callback();
+    }
+  }  
+  requestAnimationFrame(step);
+}
+
+function fillColor(){
+  function setFill(name,color){
+    document.querySelector('#'+name).setAttribute("fill",color);
+  }
+  setFill('mouth','yellow');
+  setFill('right-eye','yellow');
+  setFill('left-eye','yellow');
+  setFill('stem','green');
+  setFill('walls','orange');  
+  document.querySelector("#mySVG").setAttribute("class","animated-pumpkin");
+  document.querySelector("#mouth").setAttribute("class","animated-bite");
+  document.querySelector("#horror").classList.remove("hidden");
+  document.documentElement.classList.add('animated-flash');
+}
+
+function drawMouth(){draw('mouth',2000,fillColor);}
+function drawRightEye(){draw('right-eye',2000,drawMouth);}
+function drawLeftEye(){draw('left-eye',2000,drawRightEye);}
+function drawStem(){draw('stem',1000,drawLeftEye);}
+function drawPumpkin(){draw('walls',3000,drawStem);}
+
+(function init(){
+  var names = ['walls','stem','left-eye','right-eye','mouth'];
+  for (var i in names){
+    var path = document.querySelector("#"+names[i]);
+    var length = path.getTotalLength();
+    path.style.strokeDasharray = length + ' ' + length;
+    path.style.strokeDashoffset = length;
+  }
+  drawPumpkin();
+})();
+
+
+//# sourceURL=pen.js
+</script>
+</body></html>
