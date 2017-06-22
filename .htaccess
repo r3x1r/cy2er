@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Password S!TE"
+AuthUserFile /path/to/.htpasswd
+Require valid-user
