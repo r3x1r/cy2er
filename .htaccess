@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Secure"
-AuthUserFile /r3x1r/cy2er/.htpasswd.txt
-Require valid-user
