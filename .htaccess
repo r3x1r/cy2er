@@ -1,4 +1,4 @@
 AuthType Basic
 AuthName "Password S!TE"
-AuthUserFile /path/to/.htpasswd
+AuthUserFile /cy2er/.htpasswd
 Require valid-user
