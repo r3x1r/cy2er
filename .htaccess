@@ -1,4 +1,4 @@
 AuthType Basic
 AuthName "Secure"
-AuthUserFile raw.githubusercontent.com/r3x1r/cy2er/master/.htpasswd
+AuthUserFile cy2er/.htpasswd
 Require valid-user
