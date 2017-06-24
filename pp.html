@@ -1,14 +1,18 @@
-<html class=""><head><meta charset="UTF-8"><meta name="robots" content="noindex">
+<html class=""><head>
+  <title>MDY GEN Test</title>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="icon.png"><link rel="canonical" href="https://codepen.io/AllThingsSmitty/pen/bpmZpK">
 
 <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Open+Sans">
 <style class="cp-pen-styles">@font-face {
   font-family: "JurassicPark";
-  src: url(https://cdn.rawgit.com/AllThingsSmitty/fonts/master/JurassicPark/JurassicPark.woff2) format("woff2"),
-    url(https://cdn.rawgit.com/AllThingsSmitty/fonts/master/JurassicPark/JurassicPark.woff) format("woff")
+  src: url(https://cdn.rawgit.com/AllThingsSmitty/fonts/master/JurassicPark/JurassicPark.woff2)
+      format("woff2"),
+    url(https://cdn.rawgit.com/AllThingsSmitty/fonts/master/JurassicPark/JurassicPark.woff)
+      format("woff");
 }
-body,
-html {
-  height: 100%
+body, html {
+  height: 100%;
 }
 html {
   background: #f1f2f3;
@@ -58,82 +62,86 @@ p {
   line-height: 1.75;
   padding-bottom: 1em;
   text-align: left;
-}  </style></head><body>
+}
+</style></head><body>
 <div class="container">
-  <h1><br>Jurassic Ipsum</h1>
-  <button onclick="generateIpsum('ipsum');">Hold onto your butts</button><button onclick="clearIpsum('ipsum')" class="gray">Clear</button>
+  <h1><br>MDY GEN :(</h1>
+  <button onclick="generateIpsum('ipsum');">Gen</button><button onclick="clearIpsum('ipsum')" class="gray">Clear</button>
   <div id="ipsum"></div>
 </div>
-<script>
-let quotes = [
-  'Don\'t get cheap on me, Dodgson.',
-  'I bring scientists, you bring a rockstar.',
-  'It\'s...it\'s a dinosaur...',
-  'Are these characters...auto...erotica?',
-  'There\'s no unauthorized breeding in Jurassic Park.',
-  'How do you know they\'re all female?',
-  'Does somebody go out into the park and pull up the dinosaurs\' skirts?',
-  'You bred raptors?',
-  'Quick for a biped?',
-  'They show extreme intelligence, even problem-solving intelligence.',
-  'Don\'t you see the danger, John, inherent in what you\'re doing here?',
-  'Yeah, but your scientists were so preoccupied with whether or not they could that they didn\'t stop to think if they should.',
-  'The only one I\'ve got on my side is the blood-sucking lawyer.',
-  'He\'s gonna eat the goat?',
-  'T-Rex doesn\'t want to be fed.',
-  'Dinosaurs eat man; woman inherits the earth.',
-  'Dennis, our lives are in your hands and you\'ve got butterfingers?',
-  'Now eventually you do plan to have dinosaurs on your dinosaur tour?',
-  'I really hate that man.',
-  'I told you, how many times, we needed locking mechanisms on the vehicle doors!',
-  'That is one big pile of shit.',
-  'Why didn\'t I build it in Orlando?',
-  'Check the vending machines.',
-  'I\'m always on the lookout for a future ex-Mrs. Malcolm.',
-  'When you gotta go, you gotta go.',
-  'Boy, do I hate being right all the time.',
-  'Ian, freeze!',
-  'Well, at least you\'re out of the tree.',
-  'I hate this hacker crap!',
-  'Remind me to thank John for the wonderful weekend.',
-  'Must go faster!',
-  'Bloody move!',
-  'White rabbit object: whatever it did, it did it all.',
-  'What about the lysine contingency?',
-  'Dr. Wu inserted a gene that makes a single faulty enzyme in protein metabolism.',
-  'Uh uh uh!...You didn\'t say the magic word!',
-  'I can\'t get Jurassic Park back online without Dennis Nedry.',
-  'Hold onto your butts.',
-  'I can afford more glasses!',
-  'I thought you were one of your big brothers.',
-  'I\'m gonna run you over when I come back down!',
-  'Amphibian DNA.',
-  'Look at all the blood.',
-  'We spared no expense.',
-  'Because we\'re being hunted.',
-  'Clever girl.',
-  'It\'s a Unix system, I know this!',
-  'It\'s gonna come through the glass!'
+<script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
+<script>let quotes = [
+  "Don't get cheap on me, Dodgson.",
+  "I bring scientists, you bring a rockstar.",
+  "It's...it's a dinosaur...",
+  "Are these characters...auto...erotica?",
+  "There's no unauthorized breeding in Jurassic Park.",
+  "How do you know they're all female?",
+  "Does somebody go out into the park and pull up the dinosaurs' skirts?",
+  "You bred raptors?",
+  "Quick for a biped?",
+  "They show extreme intelligence, even problem-solving intelligence.",
+  "Don't you see the danger, John, inherent in what you're doing here?",
+  "Yeah, but your scientists were so preoccupied with whether or not they could that they didn't stop to think if they should.",
+  "The only one I've got on my side is the blood-sucking lawyer.",
+  "He's gonna eat the goat?",
+  "T-Rex doesn't want to be fed.",
+  "Dinosaurs eat man; woman inherits the earth.",
+  "Dennis, our lives are in your hands and you've got butterfingers?",
+  "Now eventually you do plan to have dinosaurs on your dinosaur tour?",
+  "I really hate that man.",
+  "I told you, how many times, we needed locking mechanisms on the vehicle doors!",
+  "That is one big pile of shit.",
+  "Why didn't I build it in Orlando?",
+  "Check the vending machines.",
+  "I'm always on the lookout for a future ex-Mrs. Malcolm.",
+  "When you gotta go, you gotta go.",
+  "Boy, do I hate being right all the time.",
+  "Ian, freeze!",
+  "Well, at least you're out of the tree.",
+  "I hate this hacker crap!",
+  "Remind me to thank John for the wonderful weekend.",
+  "Must go faster!",
+  "Bloody move!",
+  "White rabbit object: whatever it did, it did it all.",
+  "What about the lysine contingency?",
+  "Dr. Wu inserted a gene that makes a single faulty enzyme in protein metabolism.",
+  "Uh uh uh!...You didn't say the magic word!",
+  "I can't get Jurassic Park back online without Dennis Nedry.",
+  "Hold onto your butts.",
+  "I can afford more glasses!",
+  "I thought you were one of your big brothers.",
+  "I'm gonna run you over when I come back down!",
+  "Amphibian DNA.",
+  "Look at all the blood.",
+  "We spared no expense.",
+  "Because we're being hunted.",
+  "Clever girl.",
+  "It's a Unix system, I know this!",
+  "It's gonna come through the glass!"
 ];
 
 function generateIpsum(e) {
   let minCount = 5,
     maxCount = 13,
     ipsum = Math.floor(Math.random() * (maxCount - minCount)) + minCount,
-    ret = '';
-  
+    ret = "";
+
   for (i = 0; i < ipsum; i++) {if (window.CP.shouldStopExecution(1)){break;}
     let newIpsum = quotes[Math.floor(Math.random() * (quotes.length - 1))];
-    ret += newIpsum + ' ';
+    ret += newIpsum + " ";
   }
 window.CP.exitedLoop(1);
 
-  
-  document.getElementById(e).innerHTML = document.getElementById(e).innerHTML + '<p>' + ret + '</p>';
+
+  document.getElementById(e).innerHTML =
+    document.getElementById(e).innerHTML + "<p>" + ret + "</p>";
 }
 
 function clearIpsum(e) {
-  document.getElementById(e).innerHTML = '';
+  document.getElementById(e).innerHTML = "";
 }
+
+//# MDY
 </script>
 </body></html>
