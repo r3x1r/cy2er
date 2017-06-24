@@ -1,103 +1,184 @@
-<html class=""><head>
-  <title>MDY GEN Test</title>
-  <meta charset="UTF-8">
-  <meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="icon.png"><link rel="canonical" href="https://codepen.io/AllThingsSmitty/pen/bpmZpK">
+<html class="">
+  <head>
+    <title>Code Gen By MDY</title>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex"><link rel="shortcut icon" type="image/x-icon" href="icon.png">
+<link rel="canonical" href="https://codepen.io/reubenv/pen/bpvGXa">
+<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,200);
 
-<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Open+Sans">
-<style class="cp-pen-styles">@font-face {
-  font-family: "JurassicPark";
-  src: url(https://cdn.rawgit.com/AllThingsSmitty/fonts/master/JurassicPark/JurassicPark.woff2)
-      format("woff2"),
-    url(https://cdn.rawgit.com/AllThingsSmitty/fonts/master/JurassicPark/JurassicPark.woff)
-      format("woff");
+html, body {
+  background: linear-gradient(
+    141deg,
+    rgb(15, 184, 173) 0%,
+    rgb(31, 200, 219) 51%,
+    rgb(44, 181, 232) 75%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 150vh;
 }
-body, html {
-  height: 100%;
-}
-html {
-  background: #f1f2f3;
-  -webkit-font-smoothing: antialiased;
-}
-body {
-  background: #fff;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
-  font-family: "Open Sans", sans-serif;
-  margin: 0 auto;
-  max-width: 800px;
-}
-.container {
-  background: #fff;
-  border-top: 20px solid #f44336;
-  padding: 2em;
-  text-align: center;
-}
+
 h1 {
-  font-family: "JurassicPark";
-  font-size: 10em;
-  font-weight: normal;
-  line-height: .65;
-  margin: 0 0 .1em;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+  font-family: 'Raleway', sans-serif;
 }
-h1:before {
-  content: "*";
+
+h1.bigger {
+  color: white;
+  text-shadow: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 6em;
 }
-button {
-  background: #f44336;
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
-  color: #fff;
+
+span.glyphicon-refresh {
+  font-size: 3em;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
   cursor: pointer;
-  font-family: inherit;
-  font-size: inherit;
-  margin: 0 .5em 1em;
-  padding: 1em;
-  text-transform: uppercase;
 }
-.gray {
-  background: #ccc;
-  color: #111;
-}
-p {
-  line-height: 1.75;
-  padding-bottom: 1em;
-  text-align: left;
+
+.shadowed {
+  -webkit-filter: drop-shadow(2px 2px 4px black);
+  margin-top: -35px;
+  margin-left: 20px;
 }
 </style></head><body>
-<div class="container">
-  <h1><br>MDY GEN :(</h1>
-  <button onclick="generateIpsum('ipsum');">Gen</button><button onclick="clearIpsum('ipsum')" class="gray">Clear</button>
-  <div id="ipsum"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center" id="title">
+      <h1 class="bigger">Qode Quotes</h1></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center" id="quotes"><h1>It's hard enough to find an error in your code when you're looking for it; it's even harder when you've assumed your code is error-free.</h1><br><em>- Steve McConnell</em></div>
+    <div class="col-md-4"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 text-center"><br><span class="glyphicon glyphicon-refresh" id="quote-refresh" aria-hidden="true"></span>
+      <a href="https://twitter.com/intent/tweet?text=It's%20hard%20enough%20to%20find%20an%20error%20in%20your%20code%20when%20you're%20looking%20for%20it;%20it's%20even%20harder%20when%20you've%20assumed%20your%20code%20is%20error-free.%20-%20Steve%20McConnell" id="twitterLink"><img src="http://bitballoon.scdn4.secure.raxcdn.com/ff591675ca96dfff187820432cc2e74c04a75444/377a6/images/twitter-512.png" class="shadowed" width="45"></a>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+
 </div>
-<script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
-<script>let quotes = [
-  "IBAN: DE15258501104600662946",
-  "IBAN: DE27251523755344098479",
-  "IBAN: DE11574501206891249085",
-  "IBAN: DE04443517403683455178",
-  "MDY WAS HERE HHH"
+<script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>var quoteArray = [
+  ["Java is to JavaScript what Car is to Carpet.", "Chris Heilmann"],
+  [
+    "It's hard enough to find an error in your code when you're looking for it; it's even harder when you've assumed your code is error-free.",
+    "Steve McConnell"
+  ],
+  [
+    "If debugging is the process of removing software bugs, then programming must be the process of putting them in.",
+    "Edsger Dijkstra"
+  ],
+  [
+    "Rules of Optimization - Rule 1. Don't do it. Rule 2 (for experts only). Don't do it yet.",
+    "Michael A. Jackson"
+  ],
+  [
+    "The best method for accelerating a computer is the one that boosts it by 9.8 m/s2.",
+    "Anonymous"
+  ],
+  [
+    "Walking on water and developing software from a specification are easy if both are frozen.",
+    "Edward V Berard"
+  ],
+  [
+    "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
+    "Brian Kernighan"
+  ],
+  [
+    "It's not at all important to get it right the first time. It's vitally important to get it right the last time.",
+    "Andrew Hunt and David Thomas"
+  ],
+  ["First, solve the problem. Then, write the code.", "John Johnson"],
+  [
+    "Should array indices start at 0 or 1? My compromise of 0.5 was rejected without, I thought, proper consideration.",
+    "Stan Kelly-Bootle"
+  ],
+  [
+    "Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.",
+    "Rick Osborne"
+  ],
+  [
+    "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+    "Martin Fowler"
+  ],
+  ["Software sucks because users demand it to.", "Nathan Myhrvold"],
+  ["Linux is only free if your time has no value.", "Jamie Zawinski"],
+  [
+    "Beware of bugs in the above code; I have only proved it correct, not tried it.",
+    "Donald Knuth"
+  ],
+  [
+    "There is not now, nor has there ever been, nor will there ever be, any programming language in which it is the least bit difficult to write bad code.",
+    "Flon's Law"
+  ],
+  [
+    "The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time.",
+    "Tom Cargill"
+  ],
+  [
+    "Good code is its own best documentation. As you're about to add a comment, ask yourself, 'How can I improve the code so that this comment isn't needed?' Improve the code and then document it to make it even clearer.",
+    "Steve McConnell"
+  ]
 ];
 
-function generateIpsum(e) {
-  let minCount = 5,
-    maxCount = 13,
-    ipsum = Math.floor(Math.random() * (maxCount - minCount)),
-    ret = "";
+// create currentIndex var to be able to check what the current item is
+var currentIndex;
 
-  for (i = 0; i < ipsum; i++) {if (window.CP.shouldStopExecution(1)){break;}
-    let newIpsum = quotes[Math.floor(Math.random() * (quotes.length - 1))];
-    ret += newIpsum + " ";
+// changeQuote function
+function changeQuote() {
+  // randomize the index for the item we're going to display
+  var randomQuoteIndex = Math.floor(Math.random() * quoteArray.length);
+
+  // check to see if the randomized index is the same as the current item being displayed (if there is one)
+  if (currentIndex === randomQuoteIndex) {
+    // if the new index number is the same and is the last one in the array, subtract 1. otherise, add 1.
+    if (randomQuoteIndex === quoteArray.length) {
+      randomQuoteIndex--;
+      currentIndex = randomQuoteIndex;
+    } else {
+      randomQuoteIndex++;
+      currentIndex = randomQuoteIndex;
+    }
+  } else {
+    currentIndex = randomQuoteIndex;
   }
-window.CP.exitedLoop(1);
 
+  // push the quote to HTML
+  $("#quotes").html(
+    "<h1>" +
+      quoteArray[randomQuoteIndex][0] +
+      "</h1><br/><em>- " +
+      quoteArray[randomQuoteIndex][1] +
+      "</em>"
+  );
+  // push quote to Twitter link
+  var twitterURL = "https://twitter.com/intent/tweet?text=";
+  var uri =
+    quoteArray[randomQuoteIndex][0] + " - " + quoteArray[randomQuoteIndex][1];
+  var res = encodeURI(uri);
 
-  document.getElementById(e).innerHTML =
-    document.getElementById(e).innerHTML + "<p>" + ret + "</p>";
+  $("#twitterLink").attr("href", twitterURL + res);
+
+  return currentIndex;
 }
 
-function clearIpsum(e) {
-  document.getElementById(e).innerHTML = "";
-}
+// run the function on window completing its load
+$(window).load(changeQuote);
+
+// run on button click
+$("#quote-refresh").on("click", changeQuote);
 
 //# MDY
 </script>
