@@ -1,160 +1,139 @@
-<html>
+<html class=""><head><meta charset="UTF-8"><meta name="robots" content="noindex">
 
-<head>
-<title>Leaked: DDos Method</title>
-<meta charset="UTF-8"><meta name="robots" content="noindex">
-<link rel="shortcut icon" type="image/x-icon" href="icon.png">
-  <style class="cp-pen-styles">
-	@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
-
-*, *:after, *:before {
-  box-sizing: border-box;
+<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Open+Sans">
+<style class="cp-pen-styles">@font-face {
+  font-family: "JurassicPark";
+  src: url(https://cdn.rawgit.com/AllThingsSmitty/fonts/master/JurassicPark/JurassicPark.woff2) format("woff2"),
+    url(https://cdn.rawgit.com/AllThingsSmitty/fonts/master/JurassicPark/JurassicPark.woff) format("woff")
 }
-
+body,
+html {
+  height: 100%
+}
+html {
+  background: #f1f2f3;
+  -webkit-font-smoothing: antialiased;
+}
 body {
-  padding: 0;
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background: #000;
-}
-
-.page-wrap {
-  width: 80%;
+  background: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+  font-family: "Open Sans", sans-serif;
   margin: 0 auto;
+  max-width: 800px;
 }
-
+.container {
+  background: #fff;
+  border-top: 20px solid #f44336;
+  padding: 2em;
+  text-align: center;
+}
 h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 0;
-  margin: 20px 0;
-  color: #fff;
-  text-align: center;
+  font-family: "JurassicPark";
+  font-size: 10em;
+  font-weight: normal;
+  line-height: .65;
+  margin: 0 0 .1em;
 }
-	
-h5 {
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0;
-  margin: 20px 0;
-  color: #fff;
-  text-align: center;
+h1:before {
+  content: "*";
 }
-	
-h4 {
-  font-size: 1rem;
-  font-weight: bold;
-  padding: 0;
-  margin: 20px 0;
-  color: #333;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
-input[type="radio"] {
-  position: absolute;
-  top: -9999px;
-  left: -9999px;
-}
-
-.tab-wrap {
-  width: 100%;
-  float: none;
-  list-style: none;
-  position: relative;
-  margin: 0 auto;
-  padding: 0;
-  text-align: left;
-}
-
-.tab-wrap li {
-  float: left;
-  display: block;
-}
-
-.tab-wrap label {
-  position: relative;
-  display: inline-block;
-  padding: 1.5em 1.5em 1em;
-  color: ineit;
-  text-decoration: none;
-  margin: 0 10px 0 0px;
-}
-
-.label-1 {
-  z-index: 100;
-}
-
-.label-2 {
-  z-index: 90;
-}
-
-.label-3 {
-  z-index: 80;
-}
-
-.tab-wrap label:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 10px;
-  left: 0;
-  z-index: -1;
-  border: .1em solid #aaa;
-  border-bottom: none;
-  border-radius: 10px 10px 0 0;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1)));
-  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
-  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%);
-  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%);
-
-  -webkit-transform: perspective(5px) rotateX(2deg);
-    transform: perspective(5px) rotateX(2deg);
-    
-  -webkit-transform-origin: left;
-          transform-origin: left;
-}
-
-.tab-wrap .tab-content {
-  z-index: 200;
-  display: none;
-  overflow: hidden;
-  width: 100%;
-  position: absolute;
-  top: 53px;
-  left: 0;
-  padding: 20px;
-  background: #fff;
+button {
+  background: #f44336;
+  border: none;
   border-radius: 3px;
-  border: .1em solid #aaa;
-  border-top: 0;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .5);
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0 .5em 1em;
+  padding: 1em;
+  text-transform: uppercase;
 }
-
-.tab-wrap [id^="tab"]:checked + label {
-  z-index: 200;
-  margin-bottom: -1px;
-  border-top-width: 1px;
+.gray {
+  background: #ccc;
+  color: #111;
 }
+p {
+  line-height: 1.75;
+  padding-bottom: 1em;
+  text-align: left;
+}  </style></head><body>
+<div class="container">
+  <h1><br>Jurassic Ipsum</h1>
+  <button onclick="generateIpsum('ipsum');">Hold onto your butts</button><button onclick="clearIpsum('ipsum')" class="gray">Clear</button>
+  <div id="ipsum"></div>
+</div>
+<script>
+let quotes = [
+  'Don\'t get cheap on me, Dodgson.',
+  'I bring scientists, you bring a rockstar.',
+  'It\'s...it\'s a dinosaur...',
+  'Are these characters...auto...erotica?',
+  'There\'s no unauthorized breeding in Jurassic Park.',
+  'How do you know they\'re all female?',
+  'Does somebody go out into the park and pull up the dinosaurs\' skirts?',
+  'You bred raptors?',
+  'Quick for a biped?',
+  'They show extreme intelligence, even problem-solving intelligence.',
+  'Don\'t you see the danger, John, inherent in what you\'re doing here?',
+  'Yeah, but your scientists were so preoccupied with whether or not they could that they didn\'t stop to think if they should.',
+  'The only one I\'ve got on my side is the blood-sucking lawyer.',
+  'He\'s gonna eat the goat?',
+  'T-Rex doesn\'t want to be fed.',
+  'Dinosaurs eat man; woman inherits the earth.',
+  'Dennis, our lives are in your hands and you\'ve got butterfingers?',
+  'Now eventually you do plan to have dinosaurs on your dinosaur tour?',
+  'I really hate that man.',
+  'I told you, how many times, we needed locking mechanisms on the vehicle doors!',
+  'That is one big pile of shit.',
+  'Why didn\'t I build it in Orlando?',
+  'Check the vending machines.',
+  'I\'m always on the lookout for a future ex-Mrs. Malcolm.',
+  'When you gotta go, you gotta go.',
+  'Boy, do I hate being right all the time.',
+  'Ian, freeze!',
+  'Well, at least you\'re out of the tree.',
+  'I hate this hacker crap!',
+  'Remind me to thank John for the wonderful weekend.',
+  'Must go faster!',
+  'Bloody move!',
+  'White rabbit object: whatever it did, it did it all.',
+  'What about the lysine contingency?',
+  'Dr. Wu inserted a gene that makes a single faulty enzyme in protein metabolism.',
+  'Uh uh uh!...You didn\'t say the magic word!',
+  'I can\'t get Jurassic Park back online without Dennis Nedry.',
+  'Hold onto your butts.',
+  'I can afford more glasses!',
+  'I thought you were one of your big brothers.',
+  'I\'m gonna run you over when I come back down!',
+  'Amphibian DNA.',
+  'Look at all the blood.',
+  'We spared no expense.',
+  'Because we\'re being hunted.',
+  'Clever girl.',
+  'It\'s a Unix system, I know this!',
+  'It\'s gonna come through the glass!'
+];
 
-.tab-wrap [id^="tab"]:checked + label:before {
-  background: #fff;
-}
-
-.tab-wrap [id^="tab"]:checked ~ .tab-content{
-  display: block;
-}
-}</style>
-</head>
-
-<body>
-<center>
-  <img src="/screen.png">
-  <h5>The Leaker : # Priv8GHOST #<br>Date : 22/06/2017</h5>
+function generateIpsum(e) {
+  let minCount = 5,
+    maxCount = 13,
+    ipsum = Math.floor(Math.random() * (maxCount - minCount)) + minCount,
+    ret = '';
   
-  </center>
-</body>
-</html>
+  for (i = 0; i < ipsum; i++) {if (window.CP.shouldStopExecution(1)){break;}
+    let newIpsum = quotes[Math.floor(Math.random() * (quotes.length - 1))];
+    ret += newIpsum + ' ';
+  }
+window.CP.exitedLoop(1);
+
+  
+  document.getElementById(e).innerHTML = document.getElementById(e).innerHTML + '<p>' + ret + '</p>';
+}
+
+function clearIpsum(e) {
+  document.getElementById(e).innerHTML = '';
+}
+</script>
+</body></html>
