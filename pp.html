@@ -1,138 +1,672 @@
 <html class="">
-  <head>
-    <title>IBAN Gen By MDY</title>
-<meta charset="UTF-8">
-<meta name="robots" content="noindex">.
-<link rel="shortcut icon" type="image/x-icon" href="icon.png">
-<link rel="canonical" href="https://codepen.io/reubenv/pen/bpvGXa">
-
-<link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<style class="cp-pen-styles">@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,200);
-
-html, body {
-  background: linear-gradient(
-    141deg,
-    rgb(15, 184, 173) 0%,
-    rgb(31, 200, 219) 51%,
-    rgb(44, 181, 232) 75%
-  );
-  background-repeat: no-repeat;
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <title>Cy2er OS</title>
+  <link rel="shortcut icon" type="image/x-icon" href="icon.png">
+  <link rel="canonical" href="https://codepen.io/Keyon/pen/BKbMdE">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900" rel="stylesheet" type="text/css">
+<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+<style class="cp-pen-styles">html {
+  background: url(http://wallpapercave.com/wp/NNo5yub.jpg);
   background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  height: 100vh;
+  widht: 100vw;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -o-user-select: none;
 }
 
-h1 {
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
-  font-family: 'Raleway', sans-serif;
+body {
+  background: transparent;
 }
 
-h1.bigger {
-  color: white;
-  text-shadow: none;
-  font-family: 'Raleway', sans-serif;
-  font-size: 6em;
+.TB {
+  position: absolute;
+  bottom: 0px;
+  width: 75%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 999;
 }
 
-span.glyphicon-refresh {
-  font-size: 3em;
-  color: white;
-  text-shadow: 2px 2px 4px #000000;
+.Icon {
+  width: 65px;
+  height: 75px;
+  background: rgba(0, 0, 0, 0.0);
+  margin: 5px;
+  padding: 2px;
+  border-radius: 3px;
+  transition: all 0.15s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.Icon:Hover {
+  background: rgba(66, 165, 245, 0.15);
+  border: 1px solid #90CAF9;
   cursor: pointer;
 }
 
-.shadowed {
-  -webkit-filter: drop-shadow(2px 2px 4px black);
-  margin-top: -35px;
-  margin-left: 20px;
+.Icon:Active {
+  border: 1px solid #90CAF9;
+  background: rgba(66, 165, 245, 0.5);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.TBStart {
+  border-radius: 50px;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 5px;
+  left: calc(50% - 20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.TBStart:hover {
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+.ILabel {
+  width: 100%;
+  position: absolute;
+  top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 0 0 rgba(0, 0, 0, 0.5),
+    -1px 0 0 rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(0, 0, 0, 0.5),
+    0 -1px 0 rgba(0, 0, 0, 0.5),
+    1px 1px rgba(0, 0, 0, 0.5),
+    -1px -1px 0 rgba(0, 0, 0, 0.5),
+    1px -1px 0 rgba(0, 0, 0, 0.5),
+    -1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.LabelFolder {
+  height: 10px;
+  padding: 0em;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 13px;
+}
+
+/*Window*/
+
+#draggable {
+  width: 1024px;
+  height: 200px;
+  background: #4DB6AC;
+  border-radius: 3px;
+  margin-left: calc(50% - 512px);
+  margin-top: 30px;
+}
+
+#draggable2 {
+  width: 1024px;
+  height: 200px;
+  background: #FFB300;
+  border-radius: 3px;
+  margin-left: calc(50% - 512px);
+  margin-top: 30px;
+}
+
+#ComWin {
+  position: fixed;
+  left: calc(50% - 512px);
+  top: 5%;
+}
+
+#NoteWin {
+  position: fixed;
+  left: calc(50% - 512px);
+  top: 5%;
+}
+
+iframe {
+  width: 100%;
+  height: 300px;
+  border: 0px;
+}
+
+.tb {
+  width: 1000px;
+  transition: all 0.5s ease-in-out;
+}
+
+.ctrlbar {
+  width: 100%;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.filler {
+  height: 90px;
+}
+
+.ct {
+  background: #fff;
+}
+
+.Title {
+  color: #fff;
+  font-size: 35px;
+  font-family: Roboto;
+  font-weight: 300;
+  position: absolute;
+  top: 45px;
+  left: 35px;
+}
+
+.ui-widget-content {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.btn1 {
+  height: 30px;
+  width: 27px;
+  padding: 0px 0px 0px 0px;
+  margin-top: -7px;
+}
+
+.bf {
+  width: 990px;
+  opacity: 0;
+  cursor: default;
+}
+
+.mtm {
+  margin-top: -15px;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95) rotateX(25deg);
+  transition: all 0.3s ease-on-out;
+}
+
+.cpos {
+  position: absolute;
+  margin-top: 10px;
+  right: 10px;
+}
+
+.ContentText {
+  width: 970px;
+  height: 400px;
+  border-radius: 3px;
+  background: #ECEFF1;
+  position: absolute;
+  left: calc(50% - 485px);
+  max-height: 700px;
+  max-width: 970px;
+}
+
+.TArea {
+  border: 0px;
+  height: 375px;
+  resize: none;
+  background: transparent;
+  outline: none;
+}
+
+.AvatarStart {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 75px;
+  border-radius: 100px;
+}
+
+.Pp {
+  position: absolute;
+  left: 95px;
+  top: 5px;
+  font-size: 21px;
+}
+
+.InfoA {
+  position: absolute;
+  left: 95px;
+  top: 50px;
+  font-size: 15px;
+  color: #212121;
+}
+
+.ExitA {
+  position: absolute;
+  right: 10px;
+  top: 60px;
+}
+
+.FTD {
+  width: 100px;
+}
+
+.svgIHD {
+  position: absolute;
+  margin-top: -2px;
+  right: 25px;
+}
+
+#ErrorWS {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  text-align: right;
+  color: red;
 }
 </style></head><body>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4 text-center" id="title">
-      <h1 class="bigger">Banks Gen</h1></div>
-    <div class="col-md-4"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4 text-center" id="quotes"><h1>It's hard enough to find an error in your code when you're looking for it; it's even harder when you've assumed your code is error-free.</h1><br><em>- Steve McConnell</em></div>
-    <div class="col-md-4"></div>
-  </div>
-  <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4 text-center"><br><span class="glyphicon glyphicon-refresh" id="quote-refresh" aria-hidden="true"></span>
-      <a href="https://twitter.com/intent/tweet?text=It's%20hard%20enough%20to%20find%20an%20error%20in%20your%20code%20when%20you're%20looking%20for%20it;%20it's%20even%20harder%20when%20you've%20assumed%20your%20code%20is%20error-free.%20-%20Steve%20McConnell" id="twitterLink"><img src="http://bitballoon.scdn4.secure.raxcdn.com/ff591675ca96dfff187820432cc2e74c04a75444/377a6/images/twitter-512.png" class="shadowed" width="45"></a>
-    </div>
-    <div class="col-md-4"></div>
-  </div>
-
+<div class="TB">
+  <a class="TBStart waves-effect waves-dark modal-trigger" href="#Start">
+    <img style="width:100%; padding:3px; border-radius:100px;" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/531144/LogoKeyon.png">
+  </a>
 </div>
-<script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script>var quoteArray = [
-  ["IBAN: DE40401540069150562594", "Sparkasse Gronau"],
-  [
-    "IBAN: DE21500902000026308619",
-    "VR DISKONTBANK"
-  ],
-  [
-    "IBAN: DE16375516704843253883",
-    "Stadt-Sparkasse Düsseldorf Fil Monheim"
-  ],
-  [
-    "IBAN: DE81241511168381410359",
-    "Kreissparkasse Stade"
-  ]
-];
 
-// create currentIndex var to be able to check what the current item is
-var currentIndex;
+<!-- Modal Structure -->
+<div id="modal-start" class="modal bottom-sheet">
+  <div class="modal-content">
+    <div align="center">
+      <img style="width:100px;" src="https://www.seeklogo.net/wp-content/uploads/2015/09/new-google-favicon-logo.png">
+    </div>
+    <form style="width:500px; margin:0 auto;">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Search on web or device</label>
+        </div>
+        <div align="center">
+          <a style="width:150px;" class="waves-effect waves-light blue lighten-1 btn">Search</a>
+          <a style="width:150px;" href="#!" class="waves-effect waves-red modal-close grey grey-text lighten-5 btn">Close</a>
 
-// changeQuote function
-function changeQuote() {
-  // randomize the index for the item we're going to display
-  var randomQuoteIndex = Math.floor(Math.random() * quoteArray.length);
+        </div>
+      </div>
+    </form>
+    </div>
+  </div>
 
-  // check to see if the randomized index is the same as the current item being displayed (if there is one)
-  if (currentIndex === randomQuoteIndex) {
-    // if the new index number is the same and is the last one in the array, subtract 1. otherise, add 1.
-    if (randomQuoteIndex === quoteArray.length) {
-      randomQuoteIndex--;
-      currentIndex = randomQuoteIndex;
-    } else {
-      randomQuoteIndex++;
-      currentIndex = randomQuoteIndex;
-    }
-  } else {
-    currentIndex = randomQuoteIndex;
-  }
+<div id="Start" class="modal modal-fixed-footer">
+  <div class="modal-content">
+    <div style="height:80px;">
+      <img class="AvatarStart z-depth-1" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/531144/LogoKeyon.png">
+      <p class="Pp">Keyon</p>
+      <a onclick="FNA()" class="InfoA tooltipped waves-effect waves-default" data-position="right" data-delay="50" data-tooltip="Info / Change" data-tooltip-id="21224895-9aa0-4ca9-b2f4-5fe0b34439a4">Plan: 1TB 9,99$/month</a>
+          <a onclick="FNA()" class="waves-effect waves-red btn-flat red-text text-lighten-2 ExitA">Log out</a>
+        </div>
+        <table>
+          <tbody>
+            <tr>
+              <td class="FTD">Storage</td>
+              <td>550 GB used on 1 TB <a class="btn-flat waves-effect waves-default" onclick="FNA()">Upgrade</a></td>
+            </tr>
+            <tr>
+              <td class="FTD">Something</td>
+              <td>Activate something
+                <div class="switch">
+                  <label>
+                    Off
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    On
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="FTD">Lorem</td>
+              <td>Ipsum dolor sit amet!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Close</a>
+        <a href="#!" class="modal-action modal-close waves-effect waves-default blue-text btn-flat ">Save and Close</a>
+      </div>
+  </div>
 
-  // push the quote to HTML
-  $("#quotes").html(
-    "<h1>" +
-      quoteArray[randomQuoteIndex][0] +
-      "</h1><br/><em>- " +
-      quoteArray[randomQuoteIndex][1] +
-      "</em>"
-  );
-  // push quote to Twitter link
-  var twitterURL = "https://twitter.com/intent/tweet?text=";
-  var uri =
-    quoteArray[randomQuoteIndex][0] + " - " + quoteArray[randomQuoteIndex][1];
-  var res = encodeURI(uri);
+  <div id="InfoHD" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>(C:) Files</h4>
+      <p>
+        Files (30%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#2196f3 " d="M13,9V3.5L18.5,9M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"></path>
+        </svg>
+      </p>
+      <div class="progress blue lighten-3">
+        <div class="determinate blue" style="width: 30%"></div>
+      </div>
+      <p>Images (20%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#4caf50  " d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M6,20H15L18,20V12L14,16L12,14L6,20M8,9A2,2 0 0,0 6,11A2,2 0 0,0 8,13A2,2 0 0,0 10,11A2,2 0 0,0 8,9Z"></path>
+        </svg>
+      </p>
+      <div class="progress green lighten-3">
+        <div class="determinate green" style="width: 20%"></div>
+      </div>
+      <p>Video (3%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#f44336" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M17,19V13L14,15.2V13H7V19H14V16.8L17,19Z"></path>
+        </svg>
+      </p>
+      <div class="progress red lighten-3">
+        <div class="determinate red" style="width: 3%"></div>
+      </div>
+      <p>Recycle Bin (0%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#607d8b " d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"></path>
+        </svg>
+      </p>
+      <div class="progress blue-grey lighten-3">
+        <div class="determinate blue-grey" style="width: 0%"></div>
+      </div>
+      <p>Used (53%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#673ab7 " d="M16.18,19.6L14.17,16.12C15.15,15.4 15.83,14.28 15.97,13H20C19.83,15.76 18.35,18.16 16.18,19.6M13,7.03V3C17.3,3.26 20.74,6.7 21,11H16.97C16.74,8.91 15.09,7.26 13,7.03M7,12.5C7,13.14 7.13,13.75 7.38,14.3L3.9,16.31C3.32,15.16 3,13.87 3,12.5C3,7.97 6.54,4.27 11,4V8.03C8.75,8.28 7,10.18 7,12.5M11.5,21C8.53,21 5.92,19.5 4.4,17.18L7.88,15.17C8.7,16.28 10,17 11.5,17C12.14,17 12.75,16.87 13.3,16.62L15.31,20.1C14.16,20.68 12.87,21 11.5,21Z"></path>
+        </svg>
+      </p>
+      <div class="progress deep-purple lighten-3">
+        <div class="determinate deep-purple" style="width: 53%"></div>
+      </div>
+      <p>Available (47%)
+        <svg style="width:24px;height:24px;" class="svgIHD" viewBox="0 0 24 24">
+            <path fill="#673ab7" d="M16.18,19.6L14.17,16.12C15.15,15.4 15.83,14.28 15.97,13H20C19.83,15.76 18.35,18.16 16.18,19.6M13,7.03V3C17.3,3.26 20.74,6.7 21,11H16.97C16.74,8.91 15.09,7.26 13,7.03M7,12.5C7,13.14 7.13,13.75 7.38,14.3L3.9,16.31C3.32,15.16 3,13.87 3,12.5C3,7.97 6.54,4.27 11,4V8.03C8.75,8.28 7,10.18 7,12.5M11.5,21C8.53,21 5.92,19.5 4.4,17.18L7.88,15.17C8.7,16.28 10,17 11.5,17C12.14,17 12.75,16.87 13.3,16.62L15.31,20.1C14.16,20.68 12.87,21 11.5,21Z"></path>
+        </svg>
+      </p>
+      <div class="progress deep-purple lighten-3">
+        <div class="determinate deep-purple" style="width: 47%"></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Close</a>
+    </div>
+  </div>
 
-  $("#twitterLink").attr("href", twitterURL + res);
+  <div id="Icon1" class="Icon ui-draggable ui-draggable-handle" style="position: relative;">
+    <svg style="margin:5px;" viewBox="0 0 24 24">
+    <path fill="#37474F" d="M3,4H21A1,1 0 0,1 22,5V16A1,1 0 0,1 21,17H22L24,20V21H0V20L2,17H3A1,1 0 0,1 2,16V5A1,1 0 0,1 3,4M4,6V15H20V6H4Z"></path>
+</svg>
+    <p class="ILabel">Computer</p>
+  </div>
 
-  return currentIndex;
+  <div id="Icon2" class="Icon ui-draggable ui-draggable-handle" style="position: relative;">
+    <svg style="margin:5px;" viewBox="0 0 24 24">
+    <path fill="#FFB300" d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"></path>
+</svg>
+    <p class="ILabel">Readme.txt</p>
+  </div>
+
+  <!--Window-->
+  <div id="set">
+    <div id="ComWin" class="ui-widget-content hidden ui-draggable">
+      <div class="z-depth-1" id="draggable">
+        <div class="content">
+          <div class="ctrlbar ui-draggable-handle" id="ctrlbar">
+            <a class="btn bf"></a>
+            <a id="ClsBtn" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Computer</p>
+          </div>
+          <div class="row tb">
+            <div class="row">
+              <div class="col s12 m4 l5">
+
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="card-title">Local Disk (C:)</span>
+                    <p>550 GB available on 1 TB</p>
+                    <div class="progress">
+                      <div class="determinate" style="width: 56%"></div>
+                    </div>
+                  </div>
+                  <div class="card-action">
+                    <a href="#" onclick="Materialize.toast('Alreay opened', 4000)">Open</a>
+                    <a href="#InfoHD" class="modal-trigger">Info</a>
+                  </div>
+                </div>
+
+                <div class="card blue-grey darken-1">
+                  <div class="card-content white-text">
+                    <span class="card-title">DVD RW Drive (D:)</span>
+                    <p>No disk inside.</p>
+                  </div>
+                  <div class="card-action">
+                    <a href="#">Open tray</a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col s12 m4 l7">
+                <div class="card blue-grey lighten-5">
+                  <div class="card-content blue-grey-text">
+                    <span class="card-title">Local Disk (C:)</span>
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <li>
+                        <div class="collapsible-header"><i class="material-icons">airplay</i>Local</div>
+                        <div class="collapsible-body" style="">
+                          <div class="row">
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M3,3H9V7H3V3M15,10H21V14H15V10M15,17H21V21H15V17M13,13H7V18H13V20H7L5,20V9H7V11H13V13Z"></path>
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">System</p>
+                            </div>
+
+                            <div class="Icon col s2">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M19,17H11V16C11,14.67 13.67,14 15,14C16.33,14 19,14.67 19,16M15,9A2,2 0 0,1 17,11A2,2 0 0,1 15,13A2,2 0 0,1 13,11C13,9.89 13.9,9 15,9M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path>
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">User</p>
+                            </div>
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M20,6A2,2 0 0,1 22,8V18A2,2 0 0,1 20,20H4C2.89,20 2,19.1 2,18V6C2,4.89 2.89,4 4,4H10L12,6H20M19.25,13H16V9H14V13H10.75L15,17.25"></path>
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">Download</p>
+                            </div>
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M5,17L9.5,11L13,15.5L15.5,12.5L19,17M20,6H12L10,4H4A2,2 0 0,0 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8A2,2 0 0,0 20,6Z"></path>
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">Media</p>
+                            </div>
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M20,18H4V8H20M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path>
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">Empty</p>
+                            </div>
+
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Cloud</div>
+                        <div class="collapsible-body" style="">
+                          <div class="row">
+
+                            <div class="Icon col s2 ">
+                              <svg style="margin:5px;" viewBox="0 0 24 24">
+                            <path fill="#37474F" d="M13.75,9H16.14L19,14H16.05L13.5,9.46M18.3,17H12.75L14.15,14.5H19.27L19.53,14.96M11.5,17L10.4,14.86L13.24,9.9L14.74,12.56L12.25,17M20,6H12L10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6Z"></path>
+                        </svg>
+                              <p style="padding:0em; margin-top:-15px;" class="LabelFolder">Drive</p>
+                            </div>
+
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="NoteWin" class="ui-widget-content hidden ui-draggable">
+      <div class="z-depth-1" id="draggable2">
+        <div class="content">
+          <div class="ctrlbar ui-draggable-handle" id="ctrlbar2">
+            <a class="btn bf"></a>
+            <a id="ClsBtn1" class="waves-effect waves-light btn btn1 transparent z-depth-0">X</a>
+          </div>
+          <div class="filler">
+            <p class="Title">Note</p>
+          </div>
+
+          <div class="fixed-action-btn horizontal right click-to-toggle" style="position:absolute; bottom:100px;">
+            <a class="btn-floating btn-large yellow darken-2">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul>
+              <li>
+                <a style="text-align:center;" class="btn-floating blue">
+                  <svg style="width:24px;height:24px; margin-top:5px;" viewBox="0 0 24 24">
+          <path fill="#fff" d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z"></path>
+      </svg>
+                </a>
+              </li>
+
+              <li>
+                <a style="text-align:center;" class="btn-floating blue">
+                  <svg style="width:24px;height:24px; margin-top:5px;" viewBox="0 0 24 24">
+          <path fill="#fff" d="M17,7V3H7V7H17M14,17A3,3 0 0,0 17,14A3,3 0 0,0 14,11A3,3 0 0,0 11,14A3,3 0 0,0 14,17M19,1L23,5V17A2,2 0 0,1 21,19H7C5.89,19 5,18.1 5,17V3A2,2 0 0,1 7,1H19M1,7H3V21H17V23H3A2,2 0 0,1 1,21V7Z"></path>
+      </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red">
+              <i class="large material-icons">mode_edit</i>
+            </a>
+            <ul>
+              <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+              <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+              <li><a style="text-align:center; font-weight:bold;" class="btn-floating green">B</a></li>
+              <li><a style="text-align:center;" class="btn-floating blue">A<span style="font-size:11px;">A</span></a></li>
+            </ul>
+          </div>
+          <div class="row ContentText z-depth-2">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="TArea">                    If you ask yourself "Why should I need this?" the answer is:
+                    
+                    'Cause this can be cool at Cloud Storage, imagine to enter your Google Drive or DropBox and have a mini computer,
+                    with desktop, windows and other.
+                    It isn't more difficult to use, so why not?
+                    
+                    Anyway, this is only a preview to show my skill level (19/05/16), maybe someone who want to create an OS can use
+                    this for an idea.
+                    
+                    Hope you like it! :)
+                  </textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ErrorWS" class="hidden">
+    <p>
+      Screen size is under 1024 x 768 <br> Please use minimum 1024 x 768 <br> Recommended resolution: 1920 x 1080 or scaled
+    </p>
+  </div>
+<script src="//production-assets.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+<script>$(function() {
+  $("#Icon1").draggable({
+    grid: [80, 80]
+  });
+});
+$(function() {
+  $("#Icon2").draggable({
+    grid: [80, 80]
+  });
+});
+
+$("#Icon1").dblclick(function() {
+  $("#ComWin").removeClass("hidden");
+});
+
+$("#ClsBtn").click(function() {
+  $("#ComWin").addClass("hidden");
+});
+
+$("#Icon2").dblclick(function() {
+  $("#NoteWin").removeClass("hidden");
+});
+
+$("#ClsBtn1").click(function() {
+  $("#NoteWin").addClass("hidden");
+});
+
+$(function() {
+  $("#ComWin").draggable({
+    handle: "#ctrlbar"
+  });
+});
+
+$(function() {
+  $("#NoteWin").draggable({
+    handle: "#ctrlbar2"
+  });
+});
+
+Materialize.toast("Double click on icons to open", 4000);
+
+$(document).ready(function() {
+  $("input#input_text, textarea#textarea1").characterCounter();
+});
+$(document).ready(function() {
+  $("input#input_text, textarea#textarea2").characterCounter();
+});
+
+$(document).ready(function() {
+  // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+  $(".modal-trigger").leanModal();
+});
+
+function FNA() {
+  Materialize.toast("Function not available", 4000);
 }
 
-// run the function on window completing its load
-$(window).load(changeQuote);
+if ($(window).width() <= 1023) {
+  $("#ErrorWS").removeClass("hidden");
+}
 
-// run on button click
-$("#quote-refresh").on("click", changeQuote);
-
-</script>
-</body></html>
+//# sourceURL=pen.js
+</script><div id="toast-container"></div>
+<div class="material-tooltip" id="21224895-9aa0-4ca9-b2f4-5fe0b34439a4"><span>Info / Change</span><div class="backdrop" style="top: 0px; left: 0px;"></div></div><div class="hiddendiv common"></div></body></html>
